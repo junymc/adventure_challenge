@@ -1,0 +1,27 @@
+class Api::v1::AdventuresController < ApplicationController
+
+    def create
+        @adventure = Adventure.new(adventure_params)
+        if @adventure.save
+            render json: @adventure, status: 200
+        else
+            render json: {error: "Something went wrong, please try again."}, status: 400
+        end
+    end
+
+    def index
+        @adventures = Adventure.all
+        render json: @adventures, status: 200
+    end
+
+    def show
+        @adventure = Adventure.find(params[:id])
+        render json: @adventure, status: 200
+    end
+
+    private
+    def adventure_params
+        params.require(:adventure).permit(:name, :cost, :time, :duration, :hints)
+    end
+
+end
