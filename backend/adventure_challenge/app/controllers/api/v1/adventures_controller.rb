@@ -21,7 +21,7 @@ class Api::v1::AdventuresController < ApplicationController
 
     private
     def adventure_params
-        params.require(:adventure).permit(:name, :cost, :time, :duration, :hints)
+        params.require(:adventure).permit(:name, :category, :cost, :time, :duration, :hints, :scratch)
     end
 
 end
