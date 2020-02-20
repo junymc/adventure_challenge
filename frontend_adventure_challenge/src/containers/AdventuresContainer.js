@@ -6,7 +6,7 @@ class AdventuresContainer extends React.Component {
     render() {
         return (
             <div>
-                <Adventures adventures={this.props.adventures} />
+                <Adventures adventures={this.props.adventures} scratchAdventure={this.props.scratchAdventure} />
             </div>
         )
     }
@@ -14,7 +14,8 @@ class AdventuresContainer extends React.Component {
 
 const mapStateToProps = ({ adventures }) => ({ adventures })
 
-// const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
+   scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id })
+})
 
-// })
-export default connect(mapStateToProps)(AdventuresContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(AdventuresContainer)
