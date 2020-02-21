@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 class AdventuresContainer extends React.Component {
     render() {
+        console.log(this.props.adventures)
         return (
             <div>
                 <Adventures adventures={this.props.adventures} scratchAdventure={this.props.scratchAdventure} />

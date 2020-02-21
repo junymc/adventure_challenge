@@ -1,8 +1,6 @@
 import uuid from 'uuid'
 
-function manageAdventure(state = {
-    adventures: []
-}, action) {
+function manageAdventure(state = [], action) {
     console.log(action)
     switch (action.type) {
         case 'SCRATCH_ADVENTURE':
@@ -11,7 +9,7 @@ function manageAdventure(state = {
                 name: action.name,
                 scratch: true
             }
-            return { ...state, adventures: [...state.adventures, adventure] }
+            return [...state, adventure]
 
         default:
             return state

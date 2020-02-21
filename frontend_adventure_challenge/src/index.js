@@ -4,13 +4,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import manageAdventure from './reducers/manageAdventure'
-import manageEvidence from './reducers/manageEvidence'
+import reducer from './reducers/index'
 
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
-const store = createStore(manageAdventure, manageEvidence)
+const store = createStore(reducer)
 
 ReactDOM.render(
     <Provider store={store}>
