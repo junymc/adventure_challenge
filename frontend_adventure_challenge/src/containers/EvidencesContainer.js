@@ -1,5 +1,6 @@
 import React from 'react'
 import Evidences from  '../components/Evidences'
+import EvidenceInput from '../components/EvidenceInput'
 import { connect } from 'react-redux'
 
 class EvidencesContainer extends React.Component {
@@ -8,6 +9,7 @@ class EvidencesContainer extends React.Component {
         return (
             <div>
                 <Evidences evidences={this.props.evidences} />
+                <EvidenceInput addEvidence={this.props.addEvidence} />
             </div>
         )
     }
