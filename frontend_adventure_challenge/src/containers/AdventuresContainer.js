@@ -1,5 +1,5 @@
 import React from 'react'
-import Adventures from  '../components/Adventures'
+import Adventures from  '../components/adventures/Adventures'
 import { connect } from 'react-redux'
 
 class AdventuresContainer extends React.Component {

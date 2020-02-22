@@ -6,7 +6,7 @@ function manageEvidence(state = [], action) {
         case 'ADD_EVIDENCE':
             const evidence = {
                 id: uuid(),
-                name: action.name
+                description: action.description
             }
             return [...state, evidence]
         // case 'DELETE_EVIDENCE':
