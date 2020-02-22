@@ -15,7 +15,7 @@ class EvidenceInput extends React.Component {
 
     handleOnSubmit(event) {
         event.preventDefault();
-        this.props.addEvidence(this.state.evidence)
+        this.props.addEvidence({evidence: this.state.evidence, adventureId: this.props.adventureId})
         this.setState({
             evidence:
                {discription: '', image: ''}
@@ -28,7 +28,7 @@ class EvidenceInput extends React.Component {
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
                     <input
                       type="text"
-                      value={this.state.description}
+                      value={this.state.evidence.description}
                       onChange={(event) => this.handleOnChange(event)} />
                     <input type="submit" value="Completed!"/>
                 </form>

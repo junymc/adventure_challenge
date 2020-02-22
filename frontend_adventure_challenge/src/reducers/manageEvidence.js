@@ -6,11 +6,12 @@ function manageEvidence(state = [], action) {
         case 'ADD_EVIDENCE':
             const evidence = {
                 id: uuid(),
-                description: action.description
+                description: action.evidence.description,
+                adventureId: action.evidence.adventureId
             }
             return [...state, evidence]
-        // case 'DELETE_EVIDENCE':
-        //     return { evidences: state.filter(evidence => evidence.id !== action.id)}
+        case 'DELETE_EVIDENCE':
+            return { ...state, evidences: state.filter(evidence => evidence.id !== action.id)}
 
         default:
             return state

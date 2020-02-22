@@ -7,7 +7,7 @@ const Adventures = props => {
 
     return (
         <div>
-            {adventures}
+            { adventures }
         </div>
     )
 }

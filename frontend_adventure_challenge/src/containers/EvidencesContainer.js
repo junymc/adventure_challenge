@@ -8,8 +8,11 @@ class EvidencesContainer extends React.Component {
         console.log(this.props.evidences)
         return (
             <div>
-                <Evidences evidences={this.props.evidences} />
-                <EvidenceInput addEvidence={this.props.addEvidence} />
+                <Evidences 
+                evidences={this.props.evidences}
+                adventureId={this.props.adventure.id}
+                deleteEvidence={this.props.deleteEvidence} />
+                <EvidenceInput addEvidence={this.props.addEvidence} adventureId={this.props.adventure.id} />
             </div>
         )
     }
@@ -18,7 +21,8 @@ class EvidencesContainer extends React.Component {
 const mapStateToProps = ({ evidences }) => ({ evidences })
 
 const mapDispatchToProps = dispatch => ({
-   addEvidence: description => dispatch({ type: 'ADD_EVIDENCE', description })
+   addEvidence: evidence => dispatch({ type: 'ADD_EVIDENCE', evidence }),
+   deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(EvidencesContainer)
