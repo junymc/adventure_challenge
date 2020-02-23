@@ -8,7 +8,7 @@ const Adventure = props => {
     return (
         <div>
             <li>
-                <span>{adventure.description}</span><button onClick={() => props.scratchAdventure(adventure.id)}>Challenge!</button>
+                <span>{adventure}</span><button onClick={() => props.scratchAdventure(adventure.id)}>Challenge!</button>
                 <EvidencesContainer adventure={adventure} />
             </li>
         </div>

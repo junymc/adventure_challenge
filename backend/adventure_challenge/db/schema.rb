@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2020_02_19_011902) do
   create_table "adventures", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.integer "cost"
+    t.string "cost"
     t.string "time"
-    t.integer "duration"
-    t.string "hints"
+    t.string "duration"
+    t.text "description"
     t.boolean "scratch", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

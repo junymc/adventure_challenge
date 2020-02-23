@@ -3,10 +3,10 @@ class CreateAdventures < ActiveRecord::Migration[6.0]
     create_table :adventures do |t|
       t.string :name
       t.string :category
-      t.integer :cost
+      t.string :cost
       t.string :time
-      t.integer :duration
-      t.string :hints
+      t.string :duration
+      t.text :description
       t.boolean :scratch, default: false
 
       t.timestamps

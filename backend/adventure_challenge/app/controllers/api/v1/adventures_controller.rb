@@ -1,4 +1,4 @@
-class Api::v1::AdventuresController < ApplicationController
+class Api::V1::AdventuresController < ApplicationController
 
     def create
         @adventure = Adventure.new(adventure_params)

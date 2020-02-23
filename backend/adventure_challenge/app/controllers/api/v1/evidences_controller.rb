@@ -1,4 +1,4 @@
-class Api::v1::EvidencesController < ApplicationController
+class Api::V1::EvidencesController < ApplicationController
 
     def create
         @evidence = Evidence.new(evidence_params)

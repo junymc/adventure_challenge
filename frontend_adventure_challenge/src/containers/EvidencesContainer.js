@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 
 class EvidencesContainer extends React.Component {
     render() {
-        console.log(this.props.evidences)
+        console.log(this.props)
         return (
             <div>
                 <Evidences 
                 evidences={this.props.evidences}
-                adventureId={this.props.adventure.id}
+                // adventureId={this.props.adventure.id}
                 deleteEvidence={this.props.deleteEvidence} />
-                <EvidenceInput addEvidence={this.props.addEvidence} adventureId={this.props.adventure.id} />
+                {/* <EvidenceInput addEvidence={this.props.addEvidence} adventureId={this.props.adventure.id} /> */}
             </div>
         )
     }
