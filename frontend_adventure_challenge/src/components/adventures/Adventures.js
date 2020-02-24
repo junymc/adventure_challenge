@@ -5,7 +5,7 @@ const Adventures = props => {
 console.log(props)
 // props is {adventures: Array(0), scratchAdventure: ƒ}
 // adventures is array of hash
-    const adventures = props.adventures.map(adventure => (
+    const adventures = props.adventures.adventures.map(adventure => (
         <Adventure key={adventure.id} 
                    name={adventure.name}
                    category={adventure.category}
