@@ -7,18 +7,16 @@ const Adventure = props => {
 
     return (
         <div>
-            <li>
-                <span> 
-                   Name: {props.name} /
-                   Category: {props.category} /
-                   Cost:{props.cost} /
-                   Time: {props.time} /
-                   Duration: {props.duration} /
-                   Description: {props.description}
-                </span>
+            <ul className="boxed">
+                <li> Name: {props.name} </li>
+                <li> Category: {props.category} </li>
+                <li> Cost:{props.cost} </li>
+                <li> Time: {props.time} </li>
+                <li> Duration: {props.duration} </li>
+                <li> Description: {props.description} </li>
                 <button onClick={() => props.scratchAdventure(adventure.id)}>Challenge!</button>
                 <EvidencesContainer adventure={adventure} />
-            </li>
+            </ul>
         </div>
     )
 }
