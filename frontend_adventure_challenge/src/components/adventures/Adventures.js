@@ -11,8 +11,7 @@ console.log(props)
                    category={adventure.category}
                    cost={adventure.cost}
                    time={adventure.time}
-                   duration={adventure.duration}
-                   hints={adventure.hints}/>
+                   duration={adventure.duration}/>
     ))
 
     return (

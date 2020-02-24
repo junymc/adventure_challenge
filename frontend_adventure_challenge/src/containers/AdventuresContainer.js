@@ -4,17 +4,28 @@ import fetchAdventures from '../actions/fetchAdventures'
 import { connect } from 'react-redux'
 
 class AdventuresContainer extends React.Component {
-    render() {
+
+    componentDidMount() {
         console.log(this.props)
+        this.props.fetchAdventures()
+    }
+
+    render() {
+        console.log(this.props.adventures)
         return (
-            <div>
+            <div className="adventures">
                 <Adventures adventures={this.props.adventures} scratchAdventure={this.props.scratchAdventure} />
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ adventures }) => ({ adventures })
+const mapStateToProps = (state) => { 
+    return {
+        adventures: state.adventures,
+        requesting: state.requesting
+ }
+}
 
 const mapDispatchToProps = dispatch => ({
     fetchAdventures: () => dispatch(fetchAdventures()),
