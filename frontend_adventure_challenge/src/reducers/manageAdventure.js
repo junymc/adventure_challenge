@@ -5,17 +5,16 @@ function manageAdventure(state = { adventures: [], requesting: false }, action) 
     switch (action.type) {
 
         case 'ADVENTURES_REQUEST':
-            return {...state, adventures: [...state.adventures], requesting: true}
+            return {...state, requesting: true}
 
         case 'ADD_ADVENTURES':
-            return {...state, adventures: action.adventures, requesting: false}
+            return {adventures: action.adventures, requesting: false}
 
         case 'SCRATCH_ADVENTURE':
-            const adventure = {
-                id: uuid(),
-                scratch: true
-            }
-            return [...state, state.adventures.adventure, adventure]
+            const updatedAdventures = [...state.adventures]
+            const adventureToUpdate = updatedAdventures.find(a => a.id === action.id)
+            adventureToUpdate.scratch = true
+            return {...state, adventures: updatedAdventures}
 
         default:
             return state

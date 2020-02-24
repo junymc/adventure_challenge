@@ -10,15 +10,15 @@ class EvidencesContainer extends React.Component {
             <div>
                 <Evidences 
                 evidences={this.props.evidences}
-                // adventureId={this.props.adventure.id}
+                adventureId={this.props.adventures.adventure.id}
                 deleteEvidence={this.props.deleteEvidence} />
-                {/* <EvidenceInput addEvidence={this.props.addEvidence} adventureId={this.props.adventure.id} /> */}
+                <EvidenceInput addEvidence={this.props.addEvidence} adventureId={this.props.adventure.id} />
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ evidences }) => ({ evidences })
+const mapStateToProps = ({ evidences }) => ({ evidences, adventures })
 
 const mapDispatchToProps = dispatch => ({
    addEvidence: evidence => dispatch({ type: 'ADD_EVIDENCE', evidence }),
