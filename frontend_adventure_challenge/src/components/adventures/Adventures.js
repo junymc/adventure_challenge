@@ -1,27 +1,43 @@
 import React from 'react'
 import Adventure from './Adventure'
+import { connect } from 'react-redux'
 
-const Adventures = props => {
-// console.log(props)
-// props is {adventures: Array(0), scratchAdventure: ƒ}
+class Adventures extends React.Component {
+
+
 // adventures is array of hash
-    const adventures = props.adventures.adventures.map(adventure => (
-        <Adventure key={Math.random()} 
-                   id={adventure.id}
-                   name={adventure.name}
-                   category={adventure.category}
-                   cost={adventure.cost}
-                   time={adventure.time}
-                   duration={adventure.duration}
-                   description={adventure.description}
-                   scratchAdventure={adventure.scratchAdventure}/>
-    ))
+    render() {
+        console.log(this.props)
+        const adventures = this.props.adventures.adventures.map(adventure => (
+            <Adventure key={Math.random()} 
+                    id={adventure.id}
+                    name={adventure.name}
+                    category={adventure.category}
+                    cost={adventure.cost}
+                    time={adventure.time}
+                    duration={adventure.duration}
+                    description={adventure.description}
+                    scratch={adventure.scratch}
+                    scratchAdventure={adventure.scratchAdventure}/>
+        ))
 
-    return (
-        <div>
-            { adventures }
-        </div>
-    )
+        return (
+            <div>
+                { adventures }
+            </div>
+        )
+    }
 }
 
-export default Adventures;
+const mapStateToProps = (state) => { 
+    return {
+        adventures: state.adventures,
+        requesting: state.requesting
+ }
+}
+
+const mapDispatchToProps = dispatch => ({
+    scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Adventures);

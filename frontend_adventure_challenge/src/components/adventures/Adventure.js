@@ -1,10 +1,13 @@
 import React from 'react'
-import EvidencesContainer from '../../containers/EvidencesContainer'
+import EvidencesContainer from '../../containers/EvidenceContainer'
+import { connect } from 'react-redux'
 
-const Adventure = props => {
-    // console.log(props)
-    const  { adventure, name, category, cost, time, duration, scratch, description, id } = props
-
+class Adventure extends React.Component {
+    
+    
+  render() {
+    console.log(this.props)
+    const  { name, category, cost, time, duration, scratch, description, id } = this.props
     return (
         <div>
             <ul className="boxed">
@@ -14,11 +17,25 @@ const Adventure = props => {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
-                <button onClick={() => props.scratchAdventure(id)}>Challenge!</button>
-                <EvidencesContainer adventure={adventure} />
+                <button onClick={() => this.props.scratchAdventure(id)}>Challenge!</button>
+                {/* <EvidencesContainer adventure={adventure} /> */}
             </ul>
         </div>
     )
+  }
 }
 
-export default Adventure;
+const mapStateToProps = (state) => { 
+    return {
+        adventures: state.adventures,
+        requesting: state.requesting
+ }
+}
+
+const mapDispatchToProps = dispatch => ({
+    scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id })
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Adventure);
+

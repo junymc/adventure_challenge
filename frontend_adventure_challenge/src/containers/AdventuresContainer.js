@@ -14,7 +14,7 @@ class AdventuresContainer extends React.Component {
         console.log(this.props)
         return (
             <div className="adventures">
-                <Adventures adventures={this.props.adventures} scratchAdventure={this.props.scratchAdventure} />
+                <Adventures />
             </div>
         )
     }

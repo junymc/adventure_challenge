@@ -12,7 +12,7 @@ function manageEvidence(state = [], action) {
             }
             return [...state, evidence]
         case 'DELETE_EVIDENCE':
-            return { ...state, evidences: state.filter(evidence => evidence.id !== action.id)}
+            return { ...state, evidence: state.filter(evidence => evidence.id !== action.id)}
 
         default:
             return state

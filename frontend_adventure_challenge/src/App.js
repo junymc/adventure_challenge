@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 
 import AdventuresContainer from './containers/AdventuresContainer'
-import EvidencesContainer from './containers/EvidencesContainer'
+import EvidenceContainer from './containers/EvidenceContainer'
 import Adventure from './components/adventures/Adventure'
 
 function App() {
@@ -14,15 +14,18 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/" exact>
+        <Route path="/" exact>
+            <h1>Welcome to Adventure Challenge</h1>
+          </Route>
+          <Route path="/adventures">
             <h1>Adventures List</h1>
             <AdventuresContainer />
           </Route>
-          {/* <Route path="/adventure/`${adventure.id}`">
-            <Adventure />
+          {/* <Route path="/adventures/`${adventure.id}`">
+            <Adventures />
           </Route> */}
-          {/* <Route path="adventure/`${adventure.id}`/evidence">
-            <EvidencesContainer />
+          {/* <Route path="adventures/`${adventure.id}`/evidence">
+            <EvidenceContainer />
           </Route> */}
         </Switch>
       </div>
