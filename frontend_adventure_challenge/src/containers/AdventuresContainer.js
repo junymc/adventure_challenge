@@ -6,12 +6,12 @@ import { connect } from 'react-redux'
 class AdventuresContainer extends React.Component {
 
     componentDidMount() {
-        console.log(this.props)
+        // console.log(this.props)
         this.props.fetchAdventures()
     }
 
     render() {
-        console.log(this.props.adventures)
+        console.log(this.props)
         return (
             <div className="adventures">
                 <Adventures adventures={this.props.adventures} scratchAdventure={this.props.scratchAdventure} />

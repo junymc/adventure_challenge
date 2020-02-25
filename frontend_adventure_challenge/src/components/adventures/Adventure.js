@@ -2,19 +2,19 @@ import React from 'react'
 import EvidencesContainer from '../../containers/EvidencesContainer'
 
 const Adventure = props => {
-    console.log(props)
-    const  { adventure } = props
+    // console.log(props)
+    const  { adventure, name, category, cost, time, duration, scratch, description, id } = props
 
     return (
         <div>
             <ul className="boxed">
-                <li className={props.scratch ? "shown" : "hidden"}> Name: {props.name} </li>
-                <li> Category: {props.category} </li>
-                <li> Cost:{props.cost} </li>
-                <li> Time: {props.time} </li>
-                <li> Duration: {props.duration} </li>
-                <li className={props.scratch ? "shown" : "hidden"}> Description: {props.description} </li>
-                <button onClick={() => props.scratchAdventure(adventure.id)}>Challenge!</button>
+                <li className={scratch ? "shown" : "hidden"}> Name: {name} </li>
+                <li> Category: {category} </li>
+                <li> Cost:{cost} </li>
+                <li> Time: {time} </li>
+                <li> Duration: {duration} </li>
+                <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
+                <button onClick={() => props.scratchAdventure(id)}>Challenge!</button>
                 <EvidencesContainer adventure={adventure} />
             </ul>
         </div>

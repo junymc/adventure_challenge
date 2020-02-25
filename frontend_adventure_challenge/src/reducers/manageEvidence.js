@@ -1,12 +1,13 @@
 import uuid from 'uuid'
 
 function manageEvidence(state = [], action) {
-    console.log(action)
+    // console.log(action)
     switch (action.type) {
         case 'ADD_EVIDENCE':
             const evidence = {
                 id: uuid(),
                 description: action.evidence.description,
+                image: action.evidence.image,
                 adventureId: action.evidence.adventureId
             }
             return [...state, evidence]
