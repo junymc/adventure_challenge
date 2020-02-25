@@ -57,3 +57,23 @@
 .hidden {
   visibility: hidden;
 }
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgb(210, 212, 219);
+}
+
+.nav-lonks {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex;
+  
+}
+
+a:link {
+  text-decoration: none;
+}
