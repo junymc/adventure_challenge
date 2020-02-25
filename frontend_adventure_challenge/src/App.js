@@ -21,10 +21,10 @@ function App() {
             <h1>Adventures List</h1>
             <AdventuresContainer />
           </Route>
-          {/* <Route path="/adventures/`${adventure.id}`">
-            <Adventures />
-          </Route> */}
-          {/* <Route path="adventures/`${adventure.id}`/evidence">
+          <Route path={`/adventures/:id`}>
+            <AdventuresContainer />
+          </Route>
+          {/* <Route path="adventures/`${adventureId}`/evidence">
             <EvidenceContainer />
           </Route> */}
         </Switch>

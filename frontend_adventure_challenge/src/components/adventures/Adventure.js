@@ -1,6 +1,8 @@
 import React from 'react'
 import EvidencesContainer from '../../containers/EvidenceContainer'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class Adventure extends React.Component {
     
@@ -18,6 +20,9 @@ class Adventure extends React.Component {
                 <li> Duration: {duration} </li>
                 <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
                 <button onClick={() => this.props.scratchAdventure(id)}>Challenge!</button>
+                <Link to={`/adventures/${id}`}>
+                <button className={scratch ? "shown" : "hidden"}>Completed!</button>
+                </Link>
                 {/* <EvidencesContainer adventure={adventure} /> */}
             </ul>
         </div>
@@ -37,5 +42,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Adventure);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Adventure));
 
