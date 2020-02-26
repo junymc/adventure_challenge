@@ -6,10 +6,11 @@ import EvidenceInput from './EvidenceInput';
 import fetchAdventures from '../../actions/fetchAdventures'
 
 function AdventureEvidence(props) {
-console.log(props.adventures)
+    console.log(props.adventures.adventures)
     let { aid } = useParams();
-    const scratchedAdventure = props.adventures.find(adventure => adventure.id === aid)
-    
+    // debugger
+    const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === parseInt(aid))
+ 
 
     return (
         <div className="boxed">

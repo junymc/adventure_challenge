@@ -9,7 +9,7 @@
   border: transparent;
   width: 800px;
   height: 270px;
-  margin-left: 5px;
+  margin: center;
   margin-top: 25px;
   padding-top: 15px;
   padding-right: 15px;
@@ -103,5 +103,5 @@ body {
 }
 
 .evidence-form {
-
+  margin-left: 400px;
 }
