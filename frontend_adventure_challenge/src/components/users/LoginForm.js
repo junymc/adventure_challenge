@@ -15,7 +15,8 @@ const LoginForm = () => {
         <form onSubmit={handleSubmit}>
             <div className="inner-container">
                 <div className="header">
-                    Login
+                    <h2>Login</h2>
+                    <h3>Welcome back!</h3>
                 </div>
                 <div className="box">
                     <div className="input-group">

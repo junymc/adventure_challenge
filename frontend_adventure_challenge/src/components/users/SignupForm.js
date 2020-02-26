@@ -15,7 +15,8 @@ const SignupForm = () => {
         <form onSubmit={handleSubmit}>
             <div className="inner-container">
                 <div className="header">
-                    Signup
+                    <h2>Signup</h2>
+                    <h3>Register to challenge the adventures!</h3>
                 </div>
                 <div className="box">
                     <div className="input-group">
