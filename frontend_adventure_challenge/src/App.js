@@ -6,6 +6,8 @@ import NavBar from './components/NavBar'
 import AdventuresContainer from './containers/AdventuresContainer'
 import EvidenceContainer from './containers/EvidenceContainer'
 import Adventure from './components/adventures/Adventure'
+import LoginForm from './components/users/LoginForm'
+import SignupForm from './components/users/SignupForm'
 
 function App() {
 
@@ -27,6 +29,12 @@ function App() {
           {/* <Route path="adventures/`${adventureId}`/evidence">
             <EvidenceContainer />
           </Route> */}
+          <Route path="/login">
+            <LoginForm />
+          </Route>
+          <Route path="signup">
+            <SignupForm />
+          </Route>
         </Switch>
       </div>
     </Router>
