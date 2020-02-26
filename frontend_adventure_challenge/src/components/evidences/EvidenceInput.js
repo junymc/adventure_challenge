@@ -27,7 +27,7 @@ class EvidenceInput extends React.Component {
     render() {
     
         return (
-            <div>
+            <div className="evidence-form">
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
                     <input
                       type="text"

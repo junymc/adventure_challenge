@@ -9,8 +9,8 @@ function Adventure(props) {
     const { name, category, cost, time, duration, scratch, description, id } = props
     let { aid } = useParams();
     return (
-        <div>
-            <ul className="boxed">
+        <div className="boxed">
+            <ul>
                 <li className={scratch ? "shown" : "hidden"}> Name: {name} </li>
                 <li> Category: {category} </li>
                 <li> Cost:{cost} </li>

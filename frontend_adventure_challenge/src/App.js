@@ -9,6 +9,7 @@ import Adventure from './components/adventures/Adventure'
 import LoginForm from './components/users/LoginForm'
 import SignupForm from './components/users/SignupForm'
 import EvidenceInput from './components/evidences/EvidenceInput';
+import AdventureEvidence from './components/evidences/AdventureEvidence'
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
             <AdventuresContainer />
           </Route>
           <Route path={`/adventures/:aid`} children={<EvidenceInput />}>
-            <Adventure />
+            <AdventureEvidence />
           </Route>
           {/* <Route path="adventures/`${adventureId}`/evidence">
             <EvidenceContainer />
