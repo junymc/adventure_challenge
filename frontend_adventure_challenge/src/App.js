@@ -8,6 +8,7 @@ import EvidenceContainer from './containers/EvidenceContainer'
 import Adventure from './components/adventures/Adventure'
 import LoginForm from './components/users/LoginForm'
 import SignupForm from './components/users/SignupForm'
+import EvidenceInput from './components/evidences/EvidenceInput';
 
 function App() {
 
@@ -16,15 +17,13 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-        <Route path="/" exact>
-            <h1>Welcome to Adventure Challenge</h1>
-          </Route>
-          <Route path="/adventures">
+        
+          <Route exact path="/adventures">
             <h1>Adventures List</h1>
             <AdventuresContainer />
           </Route>
-          <Route path={`/adventures/:id`}>
-            <AdventuresContainer />
+          <Route path={`/adventures/:aid`} children={<EvidenceInput />}>
+            <Adventure />
           </Route>
           {/* <Route path="adventures/`${adventureId}`/evidence">
             <EvidenceContainer />
@@ -34,6 +33,10 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupForm />
+          </Route>
+          <Route exact path="/" >
+            <h1 id="home">Welcome to </h1>
+            <h1 id="home">Adventure Challenge</h1>
           </Route>
         </Switch>
       </div>

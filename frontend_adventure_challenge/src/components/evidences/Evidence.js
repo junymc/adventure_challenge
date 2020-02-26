@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 class Evidence extends React.Component {
     render() {
@@ -25,4 +26,14 @@ class Evidence extends React.Component {
     }
 }
 
-export default Evidence;
+const mapStateToProps = state => {
+    return {
+        evidence: state.evidence
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Evidence);

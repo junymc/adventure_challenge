@@ -16,23 +16,23 @@ const SignupForm = () => {
             <div className="inner-container">
                 <div className="header">
                     <h2>Signup</h2>
-                    <h3>Register to challenge the adventures!</h3>
+                    <h4>Register to challenge the adventures!</h4>
                 </div>
                 <div className="box">
                     <div className="input-group">
                         <label htmlFor="username">Username</label>
-                        <input type="text" name="username" className="login-input" placeholder="Username" 
+                        <input type="text" name="username" className="login-input" placeholder="Enter Username" 
                             onChange={event => setUsername(event.target.value)}
                             value={username}/>
                     </div>
 
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" name="password" className="login-input" placeholder="Password"
+                        <input type="password" name="password" className="login-input" placeholder="Enter Password"
                             onChange={event => setPassword(event.target.value)}
                             value={password}/>
                     </div>
-                    <input type="submit" className="login-btn" value="Signup"/>
+                    <button type="submit" className="btn">Signup</button>
 
                 </div>
             </div>

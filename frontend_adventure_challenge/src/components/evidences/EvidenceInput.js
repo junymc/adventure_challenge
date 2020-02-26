@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 class EvidenceInput extends React.Component {
 
@@ -23,6 +25,7 @@ class EvidenceInput extends React.Component {
     }
 
     render() {
+    
         return (
             <div>
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
@@ -43,4 +46,14 @@ class EvidenceInput extends React.Component {
     }
 }
 
-export default EvidenceInput;
+const mapStateToProps = state => {
+    return {
+        evidence: state.evidence
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    addEvidence: evidence => dispatch({ type: 'ADD_EVIDENCE', evidence })
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(EvidenceInput);

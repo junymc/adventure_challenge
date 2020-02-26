@@ -1,15 +1,13 @@
 import React from 'react'
-import EvidencesContainer from '../../containers/EvidenceContainer'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { withRouter, useParams } from 'react-router-dom'
 
-class Adventure extends React.Component {
+function Adventure(props) {
     
-    
-  render() {
-    console.log(this.props)
-    const  { name, category, cost, time, duration, scratch, description, id } = this.props
+    console.log(props)
+    const { name, category, cost, time, duration, scratch, description, id } = props
+    let { aid } = useParams();
     return (
         <div>
             <ul className="boxed">
@@ -19,16 +17,14 @@ class Adventure extends React.Component {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
-                <button onClick={() => this.props.scratchAdventure(id)}>Challenge!</button>
+                <button onClick={() => props.scratchAdventure(id)}>Challenge!</button>
                 <Link to={`/adventures/${id}`}>
                 <button className={scratch ? "shown" : "hidden"}>Completed!</button>
                 </Link>
-                {/* <EvidencesContainer adventure={adventure} /> */}
             </ul>
         </div>
     )
   }
-}
 
 const mapStateToProps = (state) => { 
     return {
