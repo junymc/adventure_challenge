@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 2020_02_19_011902) do
   end
 
   create_table "evidences", force: :cascade do |t|
+    t.bigint "adventure_id"
     t.string "image"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["adventure_id"], name: "index_evidences_on_adventure_id"
   end
 
   create_table "user_adventures", force: :cascade do |t|
