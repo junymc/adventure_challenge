@@ -1,18 +1,16 @@
-import uuid from 'uuid'
+// import uuid from 'uuid'
 
-function manageEvidence(state = [], action) {
-    // console.log(action)
+function manageEvidence(state = {}, action) {
+    console.log("before action", state)
     switch (action.type) {
         case 'ADD_EVIDENCE':
-            const evidence = {
-                id: uuid(),
-                description: action.evidence.description,
-                image: action.evidence.image,
-                adventureId: action.evidence.adventureId
-            }
-            return [...state, evidence]
+            console.log("after action", state)
+            // state = {evidence: {…}} which is evidence: {evidence: {…}, adventureId: "9"}
+            // which is evidence: {evidence: {description: "aaa", image: "ss"}, adventureId: "9"}
+            return {...state, evidence: action.evidence }
+           
         case 'DELETE_EVIDENCE':
-            return { ...state, evidence: state.filter(evidence => evidence.id !== action.id)}
+            return { ...state, evidence: state.evidences.filter(evidence => evidence.id !== action.id)}
 
         default:
             return state

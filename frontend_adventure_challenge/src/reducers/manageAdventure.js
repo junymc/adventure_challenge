@@ -1,7 +1,7 @@
 // import uuid from 'uuid'
 
 function manageAdventure(state = { adventures: [], requesting: false }, action) {
-    console.log(state)
+    // console.log(state)
     // state ={adventures: Array(0), requesting: true}
     
     switch (action.type) {

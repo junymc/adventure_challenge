@@ -5,11 +5,10 @@ import NavBar from './components/NavBar'
 
 import AdventuresContainer from './containers/AdventuresContainer'
 import EvidenceContainer from './containers/EvidenceContainer'
-import Adventure from './components/adventures/Adventure'
 import LoginForm from './components/users/LoginForm'
 import SignupForm from './components/users/SignupForm'
-import EvidenceInput from './components/evidences/EvidenceInput';
 import AdventureEvidence from './components/evidences/AdventureEvidence'
+import Evidence from './components/evidences/Evidence'
 
 function App() {
 
@@ -23,12 +22,12 @@ function App() {
             <h1>Adventures List</h1>
             <AdventuresContainer />
           </Route>
-          <Route path={`/adventures/:aid`} children={<EvidenceInput />}>
+          <Route path={`/adventures/:aid`} children={<AdventureEvidence />}>
             <AdventureEvidence />
           </Route>
-          {/* <Route path="adventures/`${adventureId}`/evidence">
-            <EvidenceContainer />
-          </Route> */}
+          <Route path={`/adventures/:aid/evidence`}>
+            <Evidence />
+          </Route>
           <Route path="/login">
             <LoginForm />
           </Route>

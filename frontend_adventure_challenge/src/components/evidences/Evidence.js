@@ -17,8 +17,8 @@ class Evidence extends React.Component {
         return (
             <div>
                 <li>
-                    {description}
-                    {image}
+                    {evidence.description}
+                    {evidence.image}
                     <button onClick={() => this.props.deleteEvidence(id)}>X</button>
                 </li>
             </div>

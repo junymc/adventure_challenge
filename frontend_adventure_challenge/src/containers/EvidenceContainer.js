@@ -7,6 +7,7 @@ import Adventure from '../components/adventures/Adventure'
 class EvidenceContainer extends React.Component {
     render() {
         console.log(this.props)
+        debugger
        return this.props.adventures.adventures.map(adventure => {
             return (
                 <div key={Math.random()}>
