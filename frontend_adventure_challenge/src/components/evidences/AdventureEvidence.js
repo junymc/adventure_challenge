@@ -6,7 +6,7 @@ import EvidenceInput from './EvidenceInput';
 import fetchAdventures from '../../actions/fetchAdventures'
 
 function AdventureEvidence(props) {
-    console.log(props)
+    // console.log(props)
     let { aid } = useParams();
     // debugger
     const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === parseInt(aid))

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class EvidenceInput extends React.Component {
 
@@ -40,7 +41,9 @@ class EvidenceInput extends React.Component {
                       value={this.state.image}
                       placeholder="image"
                       onChange={(event) => this.handleOnChange(event)} />
-                    <button id="btn-btn" type="submit">Add Evidence</button>
+                    <Link to={`/adventures/${this.props.adventureId}/evidence`}>
+                      <button id="btn-btn" type="submit">Add Evidence</button>
+                    </Link>
                 </form>
             </div>
         )

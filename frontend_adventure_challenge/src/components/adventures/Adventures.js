@@ -7,7 +7,7 @@ class Adventures extends React.Component {
 
 // adventures is array of hash
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const adventures = this.props.adventures.adventures.map(adventure => (
             <Adventure key={Math.random()} 
                     id={adventure.id}

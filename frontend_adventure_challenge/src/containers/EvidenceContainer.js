@@ -1,10 +1,14 @@
 import React from 'react'
 import Evidence from  '../components/evidences/Evidence'
-import EvidenceInput from '../components/evidences/EvidenceInput'
+import fetchEvidence from '../actions/fetchEvidence'
 import { connect } from 'react-redux'
-import Adventure from '../components/adventures/Adventure'
 
 class EvidenceContainer extends React.Component {
+
+    componentDidMount() {
+        console.log(this.props)
+        this.props.fetchEvidence()
+    } 
     render() {
         console.log(this.props)
         debugger
@@ -15,7 +19,6 @@ class EvidenceContainer extends React.Component {
                     evidence={this.props.evidence}
                     adventureId={adventure.id}
                     deleteEvidence={this.props.deleteEvidence} />
-                    <EvidenceInput addEvidence={this.props.addEvidence} adventureId={adventure.id} />
                 </div>
             )
         })

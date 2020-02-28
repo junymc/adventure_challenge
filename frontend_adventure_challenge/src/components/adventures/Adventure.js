@@ -5,7 +5,7 @@ import { withRouter, useParams } from 'react-router-dom'
 
 function Adventure(props) {
     
-    console.log(props)
+    // console.log(props)
     const { name, category, cost, time, duration, scratch, description, id } = props
     let { aid } = useParams();
     return (

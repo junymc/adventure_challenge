@@ -1,10 +1,9 @@
 // import uuid from 'uuid'
 
 function manageEvidence(state = {}, action) {
-    console.log("before action", state)
+    
     switch (action.type) {
         case 'ADD_EVIDENCE':
-            console.log("after action", state)
             // state = {evidence: {…}} which is evidence: {evidence: {…}, adventureId: "9"}
             // which is evidence: {evidence: {description: "aaa", image: "ss"}, adventureId: "9"}
             return {...state, evidence: action.evidence }

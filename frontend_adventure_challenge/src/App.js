@@ -22,11 +22,11 @@ function App() {
             <h1>Adventures List</h1>
             <AdventuresContainer />
           </Route>
-          <Route path={`/adventures/:aid`} children={<AdventureEvidence />}>
-            <AdventureEvidence />
-          </Route>
           <Route path={`/adventures/:aid/evidence`}>
             <Evidence />
+          </Route>
+          <Route path={`/adventures/:aid`} children={<AdventureEvidence />}>
+            <AdventureEvidence />
           </Route>
           <Route path="/login">
             <LoginForm />
