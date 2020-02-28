@@ -23,7 +23,7 @@ function App() {
             <AdventuresContainer />
           </Route>
           <Route path={`/adventures/:aid/evidence`}>
-            <Evidence />
+            <EvidenceContainer />
           </Route>
           <Route path={`/adventures/:aid`} children={<AdventureEvidence />}>
             <AdventureEvidence />

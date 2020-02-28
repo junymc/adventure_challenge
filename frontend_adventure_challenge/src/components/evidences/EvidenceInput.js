@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { fetchEvidence, deleteEvidence } from '../../actions/fetchEvidence'
 
 class EvidenceInput extends React.Component {
 
@@ -17,10 +18,14 @@ class EvidenceInput extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(this.props)
-        this.props.addEvidence({evidence: this.state, adventureId: this.props.adventureId})
+        console.log(this.state)
+        const eviDescription = this.state.description
+        const eviImage = this.state.image
+        const eviObjt = { eviDescription, eviImage }
+        this.props.fetchEvidence(eviObjt)
+        console.log(eviObjt)
         this.setState({
-            discription: '',
+            description: '',
             image: ''
         })
     }
@@ -56,9 +61,11 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => ({
-    addEvidence: evidence => dispatch({ type: 'ADD_EVIDENCE', evidence }),
-    deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(EvidenceInput);
+
+// const mapDispatchToProps = dispatch => ({
+//     addEvidence: evidence => dispatch({ type: 'ADD_EVIDENCE', evidence }),
+//     deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
+// })
+
+export default connect(mapStateToProps, {fetchEvidence, deleteEvidence})(EvidenceInput);

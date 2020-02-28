@@ -7,3 +7,5 @@ function fetchAdventures() {
     }
 }
 export default fetchAdventures;
+
+// write another fetch that request to update the scratch status to be true to API

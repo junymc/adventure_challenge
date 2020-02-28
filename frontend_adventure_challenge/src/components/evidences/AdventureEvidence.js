@@ -14,15 +14,21 @@ function AdventureEvidence(props) {
 
     return (
         <div className="boxed">
-            <ul>
-                <li> Name: {scratchedAdventure.name} </li>
-                <li> Category: {scratchedAdventure.category} </li>
-                <li> Cost:{scratchedAdventure.cost} </li>
-                <li> Time: {scratchedAdventure.time} </li>
-                <li> Duration: {scratchedAdventure.duration} </li>
-                <li> Description: {scratchedAdventure.description} </li>
-            </ul>
-            <EvidenceInput adventureId={ aid } />
+            <div className="parent">
+                <div className="child inline-block-child">
+                    <ul>
+                        <li> Name: {scratchedAdventure.name} </li>
+                        <li> Category: {scratchedAdventure.category} </li>
+                        <li> Cost:{scratchedAdventure.cost} </li>
+                        <li> Time: {scratchedAdventure.time} </li>
+                        <li> Duration: {scratchedAdventure.duration} </li>
+                        <li> Description: {scratchedAdventure.description} </li>
+                    </ul>
+                </div>
+                <div className="child inline-block-child">
+                    <EvidenceInput adventureId={ aid } />
+                    </div>
+            </div>
         </div>
     )
 }
