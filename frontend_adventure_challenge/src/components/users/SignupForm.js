@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SignupForm = () => {    
+const SignupForm = (props) => {    
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -9,6 +9,7 @@ const SignupForm = () => {
             event.preventDefault();
                 setUsername("")
                 setPassword("")
+        props.handleSubmit(username, password)
     }
 
     return (
@@ -20,17 +21,17 @@ const SignupForm = () => {
                 </div>
                 <div className="box">
                     <div className="input-group">
-                        <label htmlFor="username">Username</label>
                         <input type="text" name="username" className="login-input" placeholder="Enter Username" 
                             onChange={event => setUsername(event.target.value)}
-                            value={username}/>
+                            value={username} 
+                            required/>
                     </div>
 
                     <div className="input-group">
-                        <label htmlFor="password">Password</label>
                         <input type="password" name="password" className="login-input" placeholder="Enter Password"
                             onChange={event => setPassword(event.target.value)}
-                            value={password}/>
+                            value={password} 
+                            required/>
                     </div>
                     <button type="submit" className="btn">Signup</button>
 
