@@ -6,7 +6,7 @@ console.log(eviObjt)
     }
 
     return (dispatch) => {
-        fetch("http://localhost:3000/api/v1/users/user_id/adventures/adventure_id/evidences", {
+        fetch("http://localhost:3001/api/v1/users/user_id/adventures/adventure_id/evidences", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

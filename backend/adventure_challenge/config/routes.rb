@@ -19,4 +19,13 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/auth" => "sessions#auth"
+  get "/signup" => "users#create"
+  post "/login" => "sessions#create"
+  delete "/logout" =>"sessions#destroy", as: "logout"
+
+
+
+
+
 end
