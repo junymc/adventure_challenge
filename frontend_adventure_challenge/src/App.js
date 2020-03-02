@@ -8,6 +8,7 @@ import EvidenceContainer from './containers/EvidenceContainer'
 import LoginForm from './components/users/LoginForm'
 import SignupForm from './components/users/SignupForm'
 import AdventureEvidence from './components/evidences/AdventureEvidence'
+import Home from './components/Home'
 // import Evidence from './components/evidences/Evidence'
 
 function App() {
@@ -35,8 +36,7 @@ function App() {
             <SignupForm />
           </Route>
           <Route exact path="/" >
-            <h1 id="home">Welcome to </h1>
-            <h1 id="home">Adventure Challenge</h1>
+            <Home />
           </Route>
         </Switch>
       </div>
