@@ -9,6 +9,12 @@ class Api::V1::AdventuresController < ApplicationController
         end
     end
 
+    def update
+        @adventure = Adventure.find(params[:id])
+        @adventure.update(adventure_params)
+        render json: @adventure, status: 200
+    end
+
     def index
         @adventures = Adventure.all
         render json: @adventures, status: 200

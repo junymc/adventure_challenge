@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import EvidenceInput from './EvidenceInput';
 // import Adventure from '../adventures/Adventure'
-import fetchAdventures from '../../actions/fetchAdventures'
+import { fetchAdventures, updateAdventure } from '../../actions/fetchAdventures'
 
 function AdventureEvidence(props) {
     // console.log(props)
@@ -41,7 +41,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchAdventures: () => dispatch(fetchAdventures())
+    fetchAdventures: () => dispatch(fetchAdventures()),
+    updateAdventure: () => dispatch(updateAdventure())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdventureEvidence);

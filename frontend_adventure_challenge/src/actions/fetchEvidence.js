@@ -15,7 +15,7 @@ console.log(eviObjt)
             body: JSON.stringify(data)
         })
             .then(res => res.json())
-            .then(evidence => dispatch({ type: 'ADD_EVIDENCE', evidence }))
+            .then(data => dispatch({ type: 'ADD_EVIDENCE', evidence: data }))
     }
 }
 

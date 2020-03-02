@@ -1,6 +1,6 @@
 import React from 'react'
 import Adventures from  '../components/adventures/Adventures'
-import fetchAdventures from '../actions/fetchAdventures'
+import { fetchAdventures, updateAdventure } from '../actions/fetchAdventures'
 import { connect } from 'react-redux'
 
 class AdventuresContainer extends React.Component {
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchAdventures: () => dispatch(fetchAdventures()),
-    scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id })
+    scratchAdventure: id => dispatch(updateAdventure())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(AdventuresContainer)

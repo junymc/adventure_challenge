@@ -8,7 +8,7 @@ import EvidenceContainer from './containers/EvidenceContainer'
 import LoginForm from './components/users/LoginForm'
 import SignupForm from './components/users/SignupForm'
 import AdventureEvidence from './components/evidences/AdventureEvidence'
-import Evidence from './components/evidences/Evidence'
+// import Evidence from './components/evidences/Evidence'
 
 function App() {
 

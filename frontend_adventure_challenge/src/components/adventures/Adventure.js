@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { withRouter, useParams } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 function Adventure(props) {
     
     // console.log(props)
     const { name, category, cost, time, duration, scratch, description, id } = props
-    let { aid } = useParams();
+    // let { aid } = useParams();
     return (
         <div className="boxed">
             <ul>
