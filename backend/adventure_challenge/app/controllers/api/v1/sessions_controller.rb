@@ -8,7 +8,7 @@ class Api::V1::SessionsController < ApplicationController
     def create
         @user = User.find_by(@user.id)
         if @user && @user.authenticate(params[:password])
-            session[:id] = @user.id
+            session[:user_id] = @user.id
             render json: @user, status: 200
         else
             render json: {error: "Unable to login, try again."}, status: 400
@@ -16,7 +16,7 @@ class Api::V1::SessionsController < ApplicationController
     end
 
     def destroy
-        session.delete(:id)
+        session.delete(:user_id)
         render json: {status: 200}
     end
 end
