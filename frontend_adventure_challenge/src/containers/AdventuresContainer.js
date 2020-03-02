@@ -14,6 +14,7 @@ class AdventuresContainer extends React.Component {
         // console.log(this.props)
         return (
             <div className="adventures">
+                <h1>Adventures List</h1>
                 <Adventures />
             </div>
         )

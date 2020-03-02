@@ -20,13 +20,12 @@ function App() {
         <Switch>
         
           <Route exact path="/adventures">
-            <h1>Adventures List</h1>
             <AdventuresContainer />
           </Route>
           <Route path={`/adventures/:aid/evidence`}>
             <EvidenceContainer />
           </Route>
-          <Route path={`/adventures/:aid`} children={<AdventureEvidence />}>
+          <Route path={`/adventures/:aid`}>
             <AdventureEvidence />
           </Route>
           <Route path="/login">
