@@ -24,7 +24,7 @@ export const signup = (csrf_token, username, password) => {
                 throw res
             }
         }catch(error){
-            console.log(error.message)
+            console.log(error)
         }
     }
 }
