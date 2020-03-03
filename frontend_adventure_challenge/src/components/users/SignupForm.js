@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const SignupForm = (props) => {    
 
+    console.log(props)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -9,6 +10,7 @@ const SignupForm = (props) => {
             event.preventDefault();
                 setUsername("")
                 setPassword("")
+                console.log(props)
         props.handleSubmit(username, password)
     }
 

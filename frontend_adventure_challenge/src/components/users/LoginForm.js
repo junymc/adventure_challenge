@@ -9,6 +9,7 @@ const LoginForm = (props) => {
             event.preventDefault();
                 setUsername("")
                 setPassword("")
+                console.log(props)
         props.handleSubmit(username, password)
     }
 

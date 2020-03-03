@@ -12,13 +12,13 @@ class LoginContainer extends React.Component {
 
     submitHandler = async (username, password) => {
         await this.props.login(this.props.csrf_token, username, password)
+        console.log("Logged in")
     }
 
     render() {
         return (
             <div>
-                <h1>Welcome Back! Let's challenge more adventure!!</h1>
-                <LoginForm handlesubmit={this.submitHandler} />
+                <LoginForm handleSubmit={this.submitHandler} />
             </div>
         )
     }

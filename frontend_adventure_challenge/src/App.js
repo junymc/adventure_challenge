@@ -5,10 +5,10 @@ import NavBar from './components/NavBar'
 
 import AdventuresContainer from './containers/AdventuresContainer'
 import EvidenceContainer from './containers/EvidenceContainer'
-import LoginForm from './components/users/LoginForm'
-import SignupForm from './components/users/SignupForm'
 import AdventureEvidence from './components/evidences/AdventureEvidence'
 import Home from './components/Home'
+import LoginContainer from './containers/LoginContainer';
+import SignupContainer from './containers/SignupContainer';
 // import Evidence from './components/evidences/Evidence'
 
 function App() {
@@ -18,7 +18,6 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-        
           <Route exact path="/adventures">
             <AdventuresContainer />
           </Route>
@@ -29,10 +28,10 @@ function App() {
             <AdventureEvidence />
           </Route>
           <Route path="/login">
-            <LoginForm />
+            <LoginContainer />
           </Route>
           <Route path="/signup">
-            <SignupForm />
+            <SignupContainer />
           </Route>
           <Route exact path="/" >
             <Home />

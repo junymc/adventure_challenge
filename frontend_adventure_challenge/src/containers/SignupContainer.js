@@ -1,6 +1,6 @@
 import React from 'react'
-import { signup } from '../actions/user'
 import SignupForm from '../components/users/SignupForm'
+import { signup } from '../actions/user'
 import { getToken } from '../actions/auth'
 import { connect } from 'react-redux'
 
@@ -13,13 +13,13 @@ class SignupContainer extends React.Component {
 
     submitHandler = async (username, password) => {
         await this.props.signup(this.props.csrf_token, username, password)
+        console.log("Signup!")
     }
 
     render() {
         return (
             <div>
-                <h1>Now you can challenge any adventure you chose!</h1>
-                <SignupForm handlesubmit={this.submitHandler} />
+                <SignupForm handleSubmit={this.submitHandler} />
             </div>
         )
     }

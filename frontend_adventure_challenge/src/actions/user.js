@@ -10,14 +10,14 @@ export const signup = (csrf_token, username, password) => {
                     }
                 }
             })
-            const res = await fetch("http://localhost:3001/api/vi/signup", {
+            const res = await fetch("http://localhost:3001/api/v1/signup", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Tyep': 'application/json',
+                    'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': csrf_token
                 },
-                body: JSON.stringify({username, password}),
+                body: JSON.stringify({user: {username, password}}),
                 credentials: 'include'
             })
             if(!res.ok){
@@ -40,7 +40,7 @@ export const login = (csrf_token, username, password) => {
                 }
             })
 
-            const res = await fetch("http://localhost:3001/api/vi/login",{
+            const res = await fetch("http://localhost:3001/api/v1/login",{
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

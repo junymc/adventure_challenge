@@ -12,7 +12,7 @@ export function updateAdventure({adventure}) {
     console.log(adventure)
 
     return (dispatch) => {
-        fetch("http://localhost:3001/api/vi/adventures/:id", {
+        fetch("http://localhost:3001/api/v1/adventures/:id", {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

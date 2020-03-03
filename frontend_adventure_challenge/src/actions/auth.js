@@ -1,7 +1,7 @@
 export const getToken = () => {
     return async function (dispatch) {
         try{
-            const res = await fetch("http://localhost:3001/api/vi/auth", {
+            const res = await fetch("http://localhost:3001/api/v1/auth", {
                 credentials: 'include'
             })
             if(!res.ok){
