@@ -1,8 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { logout } from '../../actions/user'
 
 class User extends React.Component {
+
+    deleteHandler = async () => {
+        await this.props.logout(this.props.csrf_token)
+        console.log("Logged out")
+        this.props.history.push("/")
+    }
+
     render() {
+
         return (
             <div>
                 <h1>Welcome Back!</h1>
@@ -10,10 +20,16 @@ class User extends React.Component {
                 <Link to="/adventures">
                     <button className="btn-btn">Go to Adventure List</button>
                 </Link>
-                <button className="btn-btn">Logout</button>
+                <button className="btn-btn" onClick={this.deleteHandler}>Logout</button>
             </div>
         )
     }
 }
 
-export default User;
+const mapStateToProps = ({ csrf_token }) => ({ csrf_token })
+
+const mapDispatchToProps = dispatch => ({
+    logout: (csrf_token) => dispatch(logout(csrf_token))
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(User));
