@@ -9,6 +9,7 @@ import AdventureEvidence from './components/evidences/AdventureEvidence'
 import Home from './components/Home'
 import LoginContainer from './containers/LoginContainer';
 import SignupContainer from './containers/SignupContainer';
+import User from './components/users/User'
 // import Evidence from './components/evidences/Evidence'
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupContainer />
+          </Route>
+          <Route path="/welcome">
+            <User />
           </Route>
           <Route exact path="/" >
             <Home />

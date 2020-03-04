@@ -11,7 +11,7 @@ const LoginForm = (props) => {
                 setUsername("")
                 setPassword("")
         props.handleSubmit(username, password)
-        props.history.push("/")
+        props.history.push("/welcome")
     }
 
     return (
