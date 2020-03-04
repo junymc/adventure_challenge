@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 
 const SignupForm = (props) => {    
 
@@ -10,8 +11,8 @@ const SignupForm = (props) => {
             event.preventDefault();
                 setUsername("")
                 setPassword("")
-                console.log(props)
         props.handleSubmit(username, password)
+        props.history.push("/")
     }
 
     return (
@@ -43,4 +44,4 @@ const SignupForm = (props) => {
     )
 }
 
-export default SignupForm;
+export default withRouter(SignupForm);

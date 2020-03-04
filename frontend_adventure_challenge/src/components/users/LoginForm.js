@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { withRouter } from 'react-router-dom'
 
 const LoginForm = (props) => {    
 
@@ -10,6 +11,7 @@ const LoginForm = (props) => {
                 setUsername("")
                 setPassword("")
         props.handleSubmit(username, password)
+        props.history.push("/")
     }
 
     return (
@@ -41,4 +43,4 @@ const LoginForm = (props) => {
     )
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
