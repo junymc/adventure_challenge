@@ -1,4 +1,5 @@
 export const signup = (csrf_token, username, password) => {
+    
     return async function (dispatch) {
         try{
             dispatch({
@@ -20,6 +21,7 @@ export const signup = (csrf_token, username, password) => {
                 body: JSON.stringify({user: {username, password}}),
                 credentials: 'include'
             })
+            console.log(res)
             if(!res.ok){
                 throw res
             }
@@ -30,10 +32,11 @@ export const signup = (csrf_token, username, password) => {
 }
 
 export const login = (csrf_token, username, password) => {
+  
     return async function (dispatch) {
         try{
             dispatch({
-                type: 'LOG_IN_USER',
+                type: 'LOGIN_USER',
                 payload: {
                     username: username,
                     password: password
