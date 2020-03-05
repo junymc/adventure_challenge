@@ -2,12 +2,19 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
+import { updateAdventure } from '../../actions/fetchAdventures'
 
 function Adventure(props) {
     
     // console.log(props)
     const { name, category, cost, time, duration, scratch, description, id } = props
-    // let { aid } = useParams();
+
+    const onClick = (event) => {
+        props.scratchAdventure(id)
+        const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.scratch === true)
+        updateAdventure(id, scratchedAdventure)
+    }
+
     return (
         <div className="boxed">
             <ul>
@@ -17,7 +24,7 @@ function Adventure(props) {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
-                <button id="btn-btn" onClick={() => props.scratchAdventure(id)}>Challenge!</button>
+                <button id="btn-btn" onClick={onClick}>Challenge!</button>
                 <Link to={`/adventures/${id}`}>
                 <button id="btn-btn" className={scratch ? "shown" : "hidden"}>Completed!</button>
                 </Link>
@@ -34,7 +41,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id })
+    scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id }),
+    updateAdventure: (id, scratchedAdventure) => dispatch(updateAdventure(id, scratchedAdventure))
 })
 
 

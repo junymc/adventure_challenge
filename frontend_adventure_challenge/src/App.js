@@ -10,7 +10,7 @@ import Home from './components/Home'
 import LoginContainer from './containers/LoginContainer';
 import SignupContainer from './containers/SignupContainer';
 import User from './components/users/User'
-// import Evidence from './components/evidences/Evidence'
+import Logout from './components/Logout'
 
 function App() {
 
@@ -36,6 +36,9 @@ function App() {
           </Route>
           <Route path="/welcome">
             <User />
+          </Route>
+          <Route path="/logout">
+            <Logout />
           </Route>
           <Route exact path="/" >
             <Home />

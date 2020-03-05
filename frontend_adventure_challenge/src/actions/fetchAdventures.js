@@ -8,9 +8,10 @@ export function fetchAdventures() {
 }
 
 // write another fetch that request to update the scratch status to be true to API
-export const updateAdventure = (id, data) => {
-    console.log(data)
-    return async function () {
+export const updateAdventure = (id, scratchedAdventure) => {
+    console.log(scratchedAdventure)
+    // id returns
+    return async function (dispatch) {
         try { 
             const res = await fetch("http://localhost:3001/api/v1/adventures/" + id, {
                     method: 'PATCH',
@@ -18,11 +19,11 @@ export const updateAdventure = (id, data) => {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(scratchedAdventure)
             })
-            if(!res.ok){
-                throw res
-            }
+            dispatch({ type: 'SCRATCH_ADVENTURE' })
+            console.log('patched!')
+            return await res.json()
         }catch(error){
             console.log(error)
         }

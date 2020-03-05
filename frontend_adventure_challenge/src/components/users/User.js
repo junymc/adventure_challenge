@@ -8,7 +8,7 @@ class User extends React.Component {
     deleteHandler = async () => {
         await this.props.logout(this.props.csrf_token)
         console.log("Logged out")
-        this.props.history.push("/")
+        this.props.history.push("/logout")
     }
 
     render() {

@@ -30,7 +30,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchAdventures: () => dispatch(fetchAdventures())
-    // scratchAdventure: id => dispatch(updateAdventure())
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(AdventuresContainer)

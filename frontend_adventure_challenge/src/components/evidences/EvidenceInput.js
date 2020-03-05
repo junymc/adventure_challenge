@@ -48,7 +48,7 @@ class EvidenceInput extends React.Component {
                       placeholder="image"
                       onChange={(event) => this.handleOnChange(event)} />
                     <Link to={`/adventures/${this.props.adventureId}/evidence`}>
-                      <button id="btn-btn" type="submit">Add Evidence</button>
+                      <button className="btn" type="submit">Add Evidence</button>
                     </Link>
                 </form>
             </div>
