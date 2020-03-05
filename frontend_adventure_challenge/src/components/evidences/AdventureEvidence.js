@@ -16,7 +16,7 @@ function AdventureEvidence(props) {
         <div className="boxed">
             <div className="parent">
                 <div className="child inline-block-child">
-                    <ul>
+                    <ul id="ul">
                         <li> Name: {scratchedAdventure.name} </li>
                         <li> Category: {scratchedAdventure.category} </li>
                         <li> Cost:{scratchedAdventure.cost} </li>

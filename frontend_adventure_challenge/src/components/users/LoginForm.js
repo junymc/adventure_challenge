@@ -35,7 +35,7 @@ const LoginForm = (props) => {
                             value={password} 
                             required/>
                     </div>
-                    <button type="submit" className="btn">Login</button>
+                    <button type="submit" id="btn">Login</button>
 
                 </div>
             </div>

@@ -63,13 +63,13 @@ a:link {
 
 .inner-container {
   position: absolute;
-  top: -10%;
+  top: 0%;
   left: 50%;
   transform: translate(-50%, 50%);
   border: transparent;
   border-radius: 7px;
   width: 400px;
-  height: 450px;
+  height: 350px;
   background: rgba(22, 22, 22, 0.5);
   color: #fff;
   padding: 50px 30px;
@@ -151,4 +151,8 @@ a:link {
   text-shadow: 3px 3px rgb(85, 77, 77);
   margin-bottom: 0px;
   padding-top: 50px;
+}
+
+#ul {
+  margin-bottom: 2px;
 }
