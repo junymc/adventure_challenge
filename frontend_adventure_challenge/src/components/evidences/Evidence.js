@@ -18,7 +18,7 @@ function Evidence(props) {
             <li>
                 {evidence.description}
                 {evidence.image}
-                <button onClick={() => props.deleteEvidence(id)}>X</button>
+                <button id="btn" onClick={() => props.deleteEvidence(id)}>X</button>
             </li>
         </div>
     )

@@ -8,7 +8,7 @@ class Logout extends React.Component {
                 <h1>Successfully logged out!</h1>
                 <h1>Come back with the evidence!!</h1>
                 <Link to="/adventures">
-                <button className="btn-btn">Go Challege more Adventues</button>
+                <button id="btn">Go Challege more Adventues</button>
                 </Link>
             </div>
         )

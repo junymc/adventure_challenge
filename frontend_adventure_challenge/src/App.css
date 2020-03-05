@@ -2,6 +2,38 @@
   text-align: center;
 }
 
+body {
+	margin: 0;
+  padding: 0;
+  background-image: url(./camera.png);
+  background-repeat: repeat;
+  background-size: cover;
+
+	color: white;
+	font-family: 'Raleway';
+	font-size: 20px;
+}
+
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: rgb(37, 33, 30);
+  color: white;
+}
+
+.nav-links {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex;
+}
+
+a:link {
+  text-decoration: none;
+}
+
 .boxed {
   box-sizing: border-box;
   transform: translate(30%, 50%);
@@ -29,39 +61,6 @@
   visibility: hidden;
 }
 
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: rgb(17, 58, 46);
-  color: white;
-}
-
-.nav-links {
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex;
-}
-
-a:link {
-  text-decoration: none;
-}
-
-body {
-	margin: 0;
-  padding: 0;
-  background-image: url(./wallpaper.jpg);
-  /* background-position: center; */
-  background-repeat: repeat;
-  background-size: cover;
-
-	color: white;
-	font-family: 'Raleway';
-	font-size: 20px;
-}
-
 .inner-container {
   position: absolute;
   top: -10%;
@@ -83,23 +82,39 @@ body {
   outline: none;
   height: 40px;
   color: #fff;
-  font-size: 16px;
+  font-size: 16px; 
   width: 100%;
   margin-bottom: 20px;
 }
 
-#home {
-  padding-top: 100px;
+#home-top {
+  padding-top: 110px;
+  margin: 0px;
   position: center;
   font-family: 'Pattaya';
   font-size: 90px;
-  line-height: 0;
-  text-shadow: 3px 3px grey;
+  text-shadow: 3px 3px rgb(85, 77, 77);
   color: #fff;
 }
 
-*{
-  box-sizing: border-box;
+#home-middle {
+  padding-top: 0px;
+  margin: 0px;
+  position: center;
+  font-family: 'Raleway';
+  font-size: 50px;
+  text-shadow: 3px 3px rgb(85, 77, 77);
+  color: #fff;
+}
+
+#home-bottom {
+  padding-top: 0px;
+  margin: 0px;
+  position: center;
+  font-family: 'Pattaya';
+  font-size: 90px;
+  text-shadow: 3px 3px rgb(85, 77, 77);
+  color: #fff;
 }
 
 .evidence-form {
@@ -109,3 +124,31 @@ body {
 /* .inline-block-child {
   display: inline-block;
 } */
+
+#btn {
+  font-size: 15px;
+  display: inline-block;
+  border: 1px solid rgb(155, 152, 152);
+  padding: 0 10px;
+  border-radius: 7px;
+  text-decoration: none;
+  height: 25px;
+  line-height: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: 300;
+  margin-top: 15px;
+}
+
+#btn:hover {
+  border: 1px solid rgb(250, 247, 249);
+  background-color: rgb(61, 52, 45);
+  color: white;
+}
+
+.title {
+  font-size: 60px;
+  text-shadow: 3px 3px rgb(85, 77, 77);
+  margin-bottom: 0px;
+  padding-top: 50px;
+}

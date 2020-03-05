@@ -36,7 +36,7 @@ class EvidenceInput extends React.Component {
         return (
             <div className="evidence-form">
                 <form onSubmit={this.handleOnSubmit}>
-                    <textarea
+                    <input
                       name="description"
                       value={this.state.description}
                       placeholder="Description"
@@ -48,7 +48,7 @@ class EvidenceInput extends React.Component {
                       placeholder="image"
                       onChange={(event) => this.handleOnChange(event)} />
                     <Link to={`/adventures/${this.props.adventureId}/evidence`}>
-                      <button className="btn" type="submit">Add Evidence</button>
+                      <button id="btn" type="submit">Add Evidence</button>
                     </Link>
                 </form>
             </div>

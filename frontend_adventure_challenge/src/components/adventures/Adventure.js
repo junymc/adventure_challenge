@@ -24,9 +24,9 @@ function Adventure(props) {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
-                <button id="btn-btn" onClick={onClick}>Challenge!</button>
+                <button id="btn" onClick={onClick}>Challenge!</button>
                 <Link to={`/adventures/${id}`}>
-                <button id="btn-btn" className={scratch ? "shown" : "hidden"}>Completed!</button>
+                <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button>
                 </Link>
             </ul>
         </div>

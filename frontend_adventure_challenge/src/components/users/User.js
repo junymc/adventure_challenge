@@ -18,9 +18,9 @@ class User extends React.Component {
                 <h1>Welcome Back!</h1>
                 <h2>Ready to Challenge more adventures?</h2>
                 <Link to="/adventures">
-                    <button className="btn-btn">Go to Adventure List</button>
+                    <button id="btn">Go to Adventure List</button>
                 </Link>
-                <button className="btn-btn" onClick={this.deleteHandler}>Logout</button>
+                <button id="btn" onClick={this.deleteHandler}>Logout</button>
             </div>
         )
     }
