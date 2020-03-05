@@ -11,31 +11,34 @@ import LoginContainer from './containers/LoginContainer';
 import SignupContainer from './containers/SignupContainer';
 import User from './components/users/User'
 import Logout from './components/Logout'
+import { getToken } from './actions/auth'
+import { signup, login } from './actions/user'
+import { connect } from 'react-redux'
 
-function App() {
-
+class App extends React.Component {
+render() {
   return (
     <Router>
       <div className="App">
         <NavBar />
         <Switch>
           <Route exact path="/adventures">
-            <AdventuresContainer />
+            <AdventuresContainer token={this.props.getToken} user={this.props.user}/>
           </Route>
           <Route path={`/adventures/:aid/evidence`}>
-            <EvidenceContainer />
+            <EvidenceContainer token={this.props.getToken} user={this.props.user}/>
           </Route>
           <Route path={`/adventures/:aid`}>
-            <AdventureEvidence />
+            <AdventureEvidence token={this.props.getToken} user={this.props.user}/>
           </Route>
           <Route path="/login">
-            <LoginContainer />
+            <LoginContainer token={this.props.getToken} loginUser={this.props.loginUser}/>
           </Route>
           <Route path="/signup">
-            <SignupContainer />
+            <SignupContainer token={this.props.getToken} signupUser={this.props.signupUser}/>
           </Route>
           <Route path="/welcome">
-            <User />
+            <User token={this.props.getToken} user={this.props.user}/>
           </Route>
           <Route path="/logout">
             <Logout />
@@ -48,5 +51,22 @@ function App() {
     </Router>
   );
 }
+}
 
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    token: state.csrf_token,
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    get_token: token => dispatch(getToken()),
+    signupUser: (token, username, password) => dispatch(signup(token, username, password)),
+    loginUser: (token, username, password) => dispatch(login(token, username, password))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

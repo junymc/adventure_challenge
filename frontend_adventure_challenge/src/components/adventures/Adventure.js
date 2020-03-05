@@ -15,18 +15,22 @@ function Adventure(props) {
         updateAdventure(id, scratchedAdventure)
     }
 
+    const handleLoginUser = (event) => {
+        
+    }
+
     return (
         <div className="boxed">
             <ul>
-                <li className={scratch ? "shown" : "hidden"}> Name: {name} </li>
+                {props.user ? <li className={scratch ? "shown" : "hidden"}> Name: {name} </li> : null}
                 <li> Category: {category} </li>
                 <li> Cost:{cost} </li>
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
-                <li className={scratch ? "shown" : "hidden"}> Description: {description} </li>
-                <button id="btn" onClick={onClick}>Challenge!</button>
+                {props.user ? <li className={scratch ? "shown" : "hidden"}> Description: {description} </li> : null}
+    {props.user ? <button id="btn" onClick={onClick}>Challenge!</button> : <button id="btn" onClick={handleLoginUser}>Chellenge!</button> }
                 <Link to={`/adventures/${id}`}>
-                <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button>
+                {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button> : null}
                 </Link>
             </ul>
         </div>
