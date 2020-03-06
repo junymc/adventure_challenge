@@ -7,12 +7,16 @@ import { updateAdventure } from '../../actions/fetchAdventures'
 function Adventure(props) {
     
     // console.log(props)
-    const { name, category, cost, time, duration, scratch, description, id } = props
+    const { name, category, cost, time, duration, scratch, description, id, token} = props
 
     const onClick = (event) => {
+        
         props.scratchAdventure(id)
         const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.scratch === true)
-        updateAdventure(id, scratchedAdventure)
+        const scratchedAdventures = [...scratchedAdventure, scratchedAdventure]
+        // const lastScratchedAdventure = scratchedAdventures (<=== get last adventure from the array)
+        console.log(id)
+        updateAdventure(token, id, lastScratchedAdventure)
     }
 
     const handleLoginUser = (event) => {
@@ -28,7 +32,7 @@ function Adventure(props) {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 {props.user ? <li className={scratch ? "shown" : "hidden"}> Description: {description} </li> : null}
-    {props.user ? <button id="btn" onClick={onClick}>Challenge!</button> : <button id="btn" onClick={handleLoginUser}>Chellenge!</button> }
+                <button id="btn" onClick={onClick}>Challenge!</button>
                 <Link to={`/adventures/${id}`}>
                 {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button> : null}
                 </Link>
@@ -40,13 +44,14 @@ function Adventure(props) {
 const mapStateToProps = (state) => { 
     return {
         adventures: state.adventures,
-        requesting: state.requesting
+        requesting: state.requesting,
+        token: state.csrf_token
  }
 }
 
 const mapDispatchToProps = dispatch => ({
     scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id }),
-    updateAdventure: (id, scratchedAdventure) => dispatch(updateAdventure(id, scratchedAdventure))
+    updateAdventure: (token, id, scratchedAdventure) => dispatch(updateAdventure(token, id, scratchedAdventure))
 })
 
 

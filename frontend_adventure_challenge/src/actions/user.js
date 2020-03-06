@@ -38,8 +38,10 @@ export const login = (csrf_token, username, password) => {
             dispatch({
                 type: 'LOGIN_USER',
                 payload: {
-                    username: username,
-                    password: password
+                    user: {
+                        username: username,
+                        password: password
+                    }
                 }
             })
 
@@ -50,7 +52,7 @@ export const login = (csrf_token, username, password) => {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': csrf_token
                 },
-                body: JSON.stringify({username, password}),
+                body: JSON.stringify({user: {username, password}}),
                 credentials: 'include'
             })
             if(!res.ok){

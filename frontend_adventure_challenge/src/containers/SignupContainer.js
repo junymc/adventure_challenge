@@ -1,5 +1,6 @@
 import React from 'react'
 import SignupForm from '../components/users/SignupForm'
+import { connect } from 'react-redux'
 
 
 class SignupContainer extends React.Component {
@@ -16,10 +17,15 @@ class SignupContainer extends React.Component {
     render() {
         return (
             <div>
-                <SignupForm handleSubmit={this.submitHandler} />
+                <SignupForm handleSubmit={this.submitHandler} token={this.props.getToken} />
             </div>
         )
     }
 }
 
-export default SignupContainer;
+const mapStateToProps = state => ({
+    token: state.csrf_token,
+    user: state.user
+})
+
+export default connect(mapStateToProps)(SignupContainer);

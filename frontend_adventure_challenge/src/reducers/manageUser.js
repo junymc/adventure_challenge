@@ -1,7 +1,8 @@
 function manageUser(state = "", action) {
     switch(action.type) {
         case 'LOGIN_USER':
-            return action.payload.username
+            console.log(action.payload)
+            return action.payload.user.username
         
         case 'SIGNUP_USER':
             return action.payload.user.username

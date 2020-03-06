@@ -16,6 +16,12 @@ import { signup, login } from './actions/user'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
+
+  componentDidMount() {
+    this.props.get_token()
+    console.log(this.props)
+  }
+
 render() {
   return (
     <Router>
@@ -23,22 +29,22 @@ render() {
         <NavBar />
         <Switch>
           <Route exact path="/adventures">
-            <AdventuresContainer token={this.props.getToken} user={this.props.user}/>
+            <AdventuresContainer token={this.props.get_token} user={this.props.user}/>
           </Route>
           <Route path={`/adventures/:aid/evidence`}>
-            <EvidenceContainer token={this.props.getToken} user={this.props.user}/>
+            <EvidenceContainer token={this.props.get_token} user={this.props.user}/>
           </Route>
           <Route path={`/adventures/:aid`}>
-            <AdventureEvidence token={this.props.getToken} user={this.props.user}/>
+            <AdventureEvidence token={this.props.get_token} user={this.props.user}/>
           </Route>
           <Route path="/login">
-            <LoginContainer token={this.props.getToken} loginUser={this.props.loginUser}/>
+            <LoginContainer token={this.props.get_token} loginUser={this.props.loginUser}/>
           </Route>
           <Route path="/signup">
-            <SignupContainer token={this.props.getToken} signupUser={this.props.signupUser}/>
+            <SignupContainer token={this.props.get_token} signupUser={this.props.signupUser}/>
           </Route>
           <Route path="/welcome">
-            <User token={this.props.getToken} user={this.props.user}/>
+            <User token={this.props.get_token} user={this.props.user}/>
           </Route>
           <Route path="/logout">
             <Logout />
@@ -50,23 +56,21 @@ render() {
       </div>
     </Router>
   );
+ }
 }
-}
-
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     token: state.csrf_token,
     user: state.user
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    get_token: token => dispatch(getToken()),
+const mapDispatchToProps = dispatch => ({
+    get_token: () => dispatch(getToken()),
     signupUser: (token, username, password) => dispatch(signup(token, username, password)),
     loginUser: (token, username, password) => dispatch(login(token, username, password))
-  }
-}
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

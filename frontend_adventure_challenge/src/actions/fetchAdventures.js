@@ -9,10 +9,12 @@ export function fetchAdventures() {
 
 // write another fetch that request to update the scratch status to be true to API
 export const updateAdventure = (csrf_token, id, scratchedAdventure) => {
-    console.log(scratchedAdventure)
+    console.log(csrf_token, id, scratchedAdventure)
     // check if I get all the args 
     return async function (dispatch) {
+
         try { 
+            dispatch({ type: 'SCRATCH_ADVENTURE', id })
             const res = await fetch("http://localhost:3001/api/v1/adventures/" + id, {
                     method: 'PATCH',
                     headers: {
@@ -22,9 +24,9 @@ export const updateAdventure = (csrf_token, id, scratchedAdventure) => {
                     },
                     body: JSON.stringify(scratchedAdventure)
             })
-            dispatch({ type: 'SCRATCH_ADVENTURE', id })
+            
             console.log('patched!')
-            return await res.json()
+            const scratched = await res.json()
             // figure out how to await dispatch
         }catch(error){
             console.log(error)
