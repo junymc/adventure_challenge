@@ -1,7 +1,9 @@
 class UserAdventuresController < ApplicationController
 
     def create
-        @user_adventure = UserAdventure.new(user_adventure_params)   
+        user = User.find(params[:user_id])
+        adventure = Adventure.find(params[:adventure_id])
+        @user_adventure = UserAdventure.new(user: user, adventure: adventure)   
         if @user_adventure.save
             render json: @user_adventure, status: 200
         else
@@ -16,3 +18,4 @@ class UserAdventuresController < ApplicationController
     end
    
 end
+
