@@ -13,16 +13,17 @@ function Adventure(props) {
         
         props.scratchAdventure(id)
         const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.scratch === true)
-        const scratchedAdventures = [...scratchedAdventure, scratchedAdventure]
-        // const lastScratchedAdventure = scratchedAdventures (<=== get last adventure from the array)
-        console.log(id)
+        const scratchedAdventuresArray = []
+        const scratchedAdventures = scratchedAdventuresArray.push(scratchedAdventure)
+        const lastScratchedAdventure = scratchedAdventures[scratchedAdventures.lenth - 1]
+        console.log(scratchedAdventures)
         updateAdventure(token, id, lastScratchedAdventure)
     }
 
-    const handleLoginUser = (event) => {
+    // const handleLoginUser = (event) => {
         
-    }
-
+    // }
+console.log(props)
     return (
         <div className="boxed">
             <ul>
@@ -32,7 +33,10 @@ function Adventure(props) {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 {props.user ? <li className={scratch ? "shown" : "hidden"}> Description: {description} </li> : null}
-                <button id="btn" onClick={onClick}>Challenge!</button>
+                {props.user ? <button id="btn" onClick={onClick}>Challenge!</button> : 
+                <Link to="/login">
+                <button id="btn">Login to see more details about this adventure and challenge!</button>
+                </Link> }
                 <Link to={`/adventures/${id}`}>
                 {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button> : null}
                 </Link>
@@ -45,13 +49,14 @@ const mapStateToProps = (state) => {
     return {
         adventures: state.adventures,
         requesting: state.requesting,
-        token: state.csrf_token
+        token: state.csrf_token,
+        user: state.user
  }
 }
 
 const mapDispatchToProps = dispatch => ({
     scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id }),
-    updateAdventure: (token, id, scratchedAdventure) => dispatch(updateAdventure(token, id, scratchedAdventure))
+    updateAdventure: (token, id, lastScratchedAdventure) => dispatch(updateAdventure(token, id, lastScratchedAdventure))
 })
 
 

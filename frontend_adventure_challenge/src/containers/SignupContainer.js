@@ -5,10 +5,6 @@ import { connect } from 'react-redux'
 
 class SignupContainer extends React.Component {
 
-    // async componentDidMount() {
-    //     await this.props.get_token()
-    // }
-
     submitHandler = async (username, password) => {
         await this.props.signupUser(this.props.token, username, password)
         console.log("Signup!")

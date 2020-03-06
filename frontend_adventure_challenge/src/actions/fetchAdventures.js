@@ -8,8 +8,8 @@ export function fetchAdventures() {
 }
 
 // write another fetch that request to update the scratch status to be true to API
-export const updateAdventure = (csrf_token, id, scratchedAdventure) => {
-    console.log(csrf_token, id, scratchedAdventure)
+export const updateAdventure = (csrf_token, id, lastScratchedAdventure) => {
+    console.log(csrf_token, id, lastScratchedAdventure)
     // check if I get all the args 
     return async function (dispatch) {
 
@@ -22,7 +22,7 @@ export const updateAdventure = (csrf_token, id, scratchedAdventure) => {
                         'Accept': 'application/json',
                         'X-CSRF-TOKEN': csrf_token
                     },
-                    body: JSON.stringify(scratchedAdventure)
+                    body: JSON.stringify(lastScratchedAdventure)
             })
             
             console.log('patched!')
