@@ -1,9 +1,13 @@
 import React from 'react'
 import SignupForm from '../components/users/SignupForm'
-import { connect } from 'react-redux'
 
 
 class SignupContainer extends React.Component {
+
+    componentDidMount() {
+        this.props.get_token()
+        console.log(this.props)
+    }
 
     submitHandler = async (username, password) => {
         await this.props.signupUser(this.props.token, username, password)

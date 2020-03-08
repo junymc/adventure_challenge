@@ -28,9 +28,17 @@ function Adventure(props) {
                 <li> Duration: {duration} </li>
                 {props.user ? <li className={scratch ? "shown" : "hidden"}> Description: {description} </li> : null}
                 {props.user ? <button id="btn" onClick={onClick}>Challenge!</button> : 
+                <>
+                <p> - Sign up or Log in to see more details about this adventure and challenge! - </p>
+                
+                <Link to="/signup">
+                    <button id="btn">Signup</button>
+                </Link>
                 <Link to="/login">
-                <button id="btn">Login to see more details about this adventure and challenge!</button>
-                </Link> }
+                    <button id="btn">Login</button>
+                </Link> 
+                </>
+                }
                 <Link to={`/adventures/${id}`}>
                 {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button> : null}
                 </Link>

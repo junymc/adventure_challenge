@@ -38,10 +38,10 @@ render() {
             <AdventureEvidence token={this.props.token} user={this.props.user}/>
           </Route>
           <Route path="/login">
-            <LoginContainer token={this.props.token} loginUser={this.props.loginUser} user={this.props.user}/>
+            <LoginContainer get_token={this.props.get_token} token={this.props.token} loginUser={this.props.loginUser} user={this.props.user}/>
           </Route>
           <Route path="/signup">
-            <SignupContainer token={this.props.token} signupUser={this.props.signupUser} user={this.props.user}/>
+            <SignupContainer get_token={this.props.get_token} token={this.props.token} signupUser={this.props.signupUser} user={this.props.user}/>
           </Route>
           <Route path="/welcome">
             <User token={this.props.token} user={this.props.user}/>
