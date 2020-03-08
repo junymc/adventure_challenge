@@ -2,15 +2,15 @@ export const signup = (csrf_token, username, password) => {
     
     return async function (dispatch) {
         try{
-            dispatch({
-                type: 'SIGNUP_USER',
-                payload: {
-                    user: {
-                        username: username,
-                        password: password
-                    }
-                }
-            })
+            // dispatch({
+            //     type: 'SIGNUP_USER',
+            //     payload: {
+            //         user: {
+            //             username: username,
+            //             password: password
+            //         }
+            //     }
+            // })
             const res = await fetch("http://localhost:3001/api/v1/signup", {
                 method: 'POST',
                 headers: {
@@ -25,6 +25,11 @@ export const signup = (csrf_token, username, password) => {
             if(!res.ok){
                 throw res
             }
+            const user = await res.json()
+            dispatch({
+                type: 'SIGNUP_USER',
+                payload: user
+            })
         }catch(error){
             console.log(error)
         }
@@ -35,15 +40,15 @@ export const login = (csrf_token, username, password) => {
   
     return async function (dispatch) {
         try{
-            dispatch({
-                type: 'LOGIN_USER',
-                payload: {
-                    user: {
-                        username: username,
-                        password: password
-                    }
-                }
-            })
+            // dispatch({
+            //     type: 'LOGIN_USER',
+            //     payload: {
+            //         user: {
+            //             username: username,
+            //             password: password
+            //         }
+            //     }
+            // })
 
             const res = await fetch("http://localhost:3001/api/v1/login",{
                 method: 'POST',
@@ -58,6 +63,11 @@ export const login = (csrf_token, username, password) => {
             if(!res.ok){
                 throw res
             }
+            const user = await res.json()
+            dispatch({
+                type: 'LOGIN_USER',
+                payload: user
+            })
         }catch(error){
             console.log(error)
         }

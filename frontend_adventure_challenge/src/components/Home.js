@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 class Home extends React.Component {
 
-    deleteHandler = async () => {
-        await this.props.logout(this.props.csrf_token)
+    deleteHandler = () => {
+        this.props.logoutUser(this.props.token)
         console.log("Logged out")
         this.props.history.push("/logout")
     }
@@ -23,4 +23,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default withRouter(Home);

@@ -2,28 +2,22 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import { updateAdventure } from '../../actions/fetchAdventures'
+import { updateAdventure, createUserAdventure } from '../../actions/fetchAdventures'
 
 function Adventure(props) {
-    
+    console.log(props)
     // console.log(props)
     const { name, category, cost, time, duration, scratch, description, id, token} = props
 
     const onClick = (event) => {
-        
         props.scratchAdventure(id)
-        const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.scratch === true)
-        const scratchedAdventuresArray = []
-        const scratchedAdventures = scratchedAdventuresArray.push(scratchedAdventure)
-        const lastScratchedAdventure = scratchedAdventures[scratchedAdventures.lenth - 1]
-        console.log(scratchedAdventures)
-        updateAdventure(token, id, lastScratchedAdventure)
+        const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id == id)
+ 
+        props.updateAdventure(token, id, scratchedAdventure)
+        // const user_id = props.adventures.user.id
+        // createUserAdventure(token, user_id, id)
     }
 
-    // const handleLoginUser = (event) => {
-        
-    // }
-console.log(props)
     return (
         <div className="boxed">
             <ul>
@@ -56,7 +50,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     scratchAdventure: id => dispatch({ type: 'SCRATCH_ADVENTURE', id }),
-    updateAdventure: (token, id, lastScratchedAdventure) => dispatch(updateAdventure(token, id, lastScratchedAdventure))
+    updateAdventure: (token, id, lastScratchedAdventure) => dispatch(updateAdventure(token, id, lastScratchedAdventure)),
+    createUserAdventure: (csrf_token, user_id, id) => dispatch(createUserAdventure(csrf_token, user_id, id))
 })
 
 

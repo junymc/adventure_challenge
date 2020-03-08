@@ -21,9 +21,5 @@ class LoginContainer extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    token: state.csrf_token,
-    user: state.user
-})
 
-export default connect(mapStateToProps)(LoginContainer);
+export default LoginContainer;

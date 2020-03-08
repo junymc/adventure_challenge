@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            render json: @user, status: 200
+            render json: @user, only: [:id, :username], status: 200
         else
             render json: {error: "Unable to create an account."}, status: 400
         end

@@ -33,3 +33,34 @@ export const updateAdventure = (csrf_token, id, lastScratchedAdventure) => {
         }
     }
 }
+
+export const createUserAdventure = (csrf_token, user_id, adventure_id) => {
+    console.log(csrf_token, user_id, adventure_id)
+    return async function (dispatch) {
+        try{
+            dispatch({
+                type: 'CREATE_USER_ADVENTURE',
+                payload: {
+                        user_id: user_id,
+                        adventure_id: adventure_id
+                }
+            })
+            const res = await fetch("http://localhost:3001/api/v1/signup", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrf_token
+                },
+                body: JSON.stringify({user_id, adventure_id}),
+                credentials: 'include'
+            })
+            console.log("created!")
+            if(!res.ok){
+                throw res
+            }
+        }catch(error){
+            console.log(error)
+        }
+    }
+}

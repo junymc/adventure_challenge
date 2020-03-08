@@ -11,7 +11,7 @@ class Api::V1::SessionsController < ApplicationController
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            render json: @user, status: 200
+            render json: @user, only: [:id, :username], status: 200
         else
             render json: {error: "Unable to login, try again."}, status: 400
         end

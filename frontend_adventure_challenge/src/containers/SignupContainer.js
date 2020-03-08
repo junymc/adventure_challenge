@@ -19,9 +19,4 @@ class SignupContainer extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    token: state.csrf_token,
-    user: state.user
-})
-
-export default connect(mapStateToProps)(SignupContainer);
+export default SignupContainer;
