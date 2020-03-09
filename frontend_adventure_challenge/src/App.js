@@ -17,11 +17,11 @@ import { connect } from 'react-redux'
 
 class App extends React.Component {
 
-  // componentDidMount() {
-  //   this.props.get_token()
-  //   this.props.setCurrentUser()
-  //   console.log(this.props)
-  // }
+componentDidMount() {
+    this.props.get_token()
+    this.props.setCurrentUser()
+    console.log(this.props)
+  }  
 
 render() {
   return (

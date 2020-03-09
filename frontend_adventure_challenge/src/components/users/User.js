@@ -2,12 +2,14 @@ import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../../actions/user'
+import { getToken } from '../../actions/auth'
 
 class User extends React.Component {
 
     deleteHandler = async () => {
         await this.props.logout(this.props.csrf_token)
         console.log("Logged out")
+        this.props.get_token()
         this.props.history.push("/logout")
     }
 
@@ -29,7 +31,8 @@ class User extends React.Component {
 const mapStateToProps = ({ csrf_token }) => ({ csrf_token })
 
 const mapDispatchToProps = dispatch => ({
-    logout: (csrf_token) => dispatch(logout(csrf_token))
+    logout: (csrf_token) => dispatch(logout(csrf_token)),
+    get_token: () => dispatch(getToken())
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(User));

@@ -3,14 +3,13 @@ import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import EvidenceInput from './EvidenceInput';
 // import Adventure from '../adventures/Adventure'
-import { fetchAdventures, updateAdventure } from '../../actions/fetchAdventures'
+import { updateAdventure } from '../../actions/fetchAdventures'
 
 function AdventureEvidence(props) {
     // console.log(props)
     let { aid } = useParams();
     // debugger
     const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === parseInt(aid))
- 
 
     return (
         <div className="boxed">
@@ -41,7 +40,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetchAdventures: () => dispatch(fetchAdventures()),
+    // fetchAdventures: () => dispatch(fetchAdventures()),
     updateAdventure: () => dispatch(updateAdventure())
 })
 

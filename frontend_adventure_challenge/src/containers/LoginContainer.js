@@ -3,10 +3,10 @@ import LoginForm from '../components/users/LoginForm'
 
 class LoginContainer extends React.Component {
 
-    componentDidMount() {
-        // this.props.get_token()
-        this.props.setCurrentUser()
-    }
+    // componentDidMount() {
+    //     // this.props.get_token()
+    //     this.props.setCurrentUser()
+    // }
 
     submitHandler = async (username, password) => {
         

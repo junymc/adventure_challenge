@@ -9,24 +9,30 @@ function Adventure(props) {
     // console.log(props)
     const { name, category, cost, time, duration, scratch, description, id, token} = props
 
+    // the onClick is not getting hit. can not find the right adventure. for some reason it stays as scratched
     const onClick = (event) => {
         props.scratchAdventure(id)
         const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === id)
- console.log(props)
+ console.log(scratchedAdventure)
         props.updateAdventure(token, id, scratchedAdventure)
-        // const user_id = props.adventures.user.id
-        // createUserAdventure(token, user_id, id)
+ 
+    }
+
+    const addAdventureEvidence = (event) => {
+        console.log(id)
+        const adventure = props.adventures.adventures.find(adventure => adventure.id === id)
+        props.createUserAdventure(token, props.user, adventure)
     }
 
     return (
         <div className="boxed">
             <ul>
-                {props.user ? <li className={scratch ? "shown" : "hidden"}> Name: {name} </li> : null}
+                {props.user ? <li className={scratch === true ? "shown" : "hidden"}> Name: {name} </li> : null}
                 <li> Category: {category} </li>
                 <li> Cost:{cost} </li>
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
-                {props.user ? <li className={scratch ? "shown" : "hidden"}> Description: {description} </li> : null}
+                {props.user ? <li className={scratch === true ? "shown" : "hidden"}> Description: {description} </li> : null}
                 {props.user ? <button id="btn" onClick={onClick}>Challenge!</button> : 
                 <>
                 <p> - Sign up or Log in to see more details about this adventure and challenge! - </p>
@@ -40,7 +46,7 @@ function Adventure(props) {
                 </>
                 }
                 <Link to={`/adventures/${id}`}>
-                {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"}>Completed!</button> : null}
+                {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"} onClick={addAdventureEvidence}>Completed!</button> : null}
                 </Link>
             </ul>
         </div>

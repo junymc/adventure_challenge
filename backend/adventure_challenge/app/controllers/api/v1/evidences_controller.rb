@@ -5,6 +5,7 @@ class Api::V1::EvidencesController < ApplicationController
             adventure = Adventure.find(params[:adventure_id])
             evidence = adventure.evidences.build(evidence_params)
             evidence.user = current_user
+        end
         if evidence.save
             render json: evidence, status: 200
         else

@@ -21,9 +21,6 @@ class Home extends React.Component {
                 <h1 id="home-top">Welcome to </h1>
                 <h3 id="home-middle">the</h3>
                 <h1 id="home-bottom">Adventure Challenge</h1>
-                <Link to="">
-                {this.props.user ? <button id="btn" onClick={this.deleteHandler}>Logout</button> : null}
-                </Link>
             </div>
         )
     }
