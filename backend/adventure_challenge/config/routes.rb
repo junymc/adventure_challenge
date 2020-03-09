@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get "/auth" => "sessions#auth"
       post "/signup" => "users#create"
       post "/login" => "sessions#create"
+      get "/current_user" => "users#current_user"
       delete "/logout" =>"sessions#destroy", as: "logout"
     end
   end

@@ -7,6 +7,9 @@ function manageUser(state = {}, action) {
         case 'SIGNUP_USER':
             return action.payload
 
+        case 'SET_USER':
+            return action.payload
+
         case 'LOGOUT_USER':
             return null
         

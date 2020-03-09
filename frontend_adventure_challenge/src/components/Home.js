@@ -3,6 +3,12 @@ import { Link, withRouter } from 'react-router-dom'
 
 class Home extends React.Component {
 
+    componentDidMount() {
+        this.props.get_token()
+        this.props.setCurrentUser()
+        console.log(this.props)
+    }
+
     deleteHandler = () => {
         this.props.logoutUser(this.props.token)
         console.log("Logged out")

@@ -6,6 +6,7 @@ class SignupContainer extends React.Component {
 
     componentDidMount() {
         this.props.get_token()
+        this.props.setCurrentUser()
         console.log(this.props)
     }
 

@@ -12,15 +12,16 @@ import SignupContainer from './containers/SignupContainer';
 import User from './components/users/User'
 import Logout from './components/Logout'
 import { getToken } from './actions/auth'
-import { signup, login, logout } from './actions/user'
+import { signup, login, logout, setCurrentUser } from './actions/user'
 import { connect } from 'react-redux'
 
 class App extends React.Component {
 
-  componentDidMount() {
-    this.props.get_token()
-    console.log(this.props)
-  }
+  // componentDidMount() {
+  //   this.props.get_token()
+  //   this.props.setCurrentUser()
+  //   console.log(this.props)
+  // }
 
 render() {
   return (
@@ -29,28 +30,55 @@ render() {
         <NavBar user={this.props.user}/>
         <Switch>
           <Route exact path="/adventures">
-            <AdventuresContainer token={this.props.token} user={this.props.user}/>
+            <AdventuresContainer 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            user={this.props.user}/>
           </Route>
           <Route path={`/adventures/:aid/evidence`}>
-            <EvidenceContainer token={this.props.token} user={this.props.user}/>
+            <EvidenceContainer 
+            token={this.props.token}
+            setCurrentUser={this.props.setCurrentUser} 
+            user={this.props.user}/>
           </Route>
           <Route path={`/adventures/:aid`}>
-            <AdventureEvidence token={this.props.token} user={this.props.user}/>
+            <AdventureEvidence 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            user={this.props.user}/>
           </Route>
           <Route path="/login">
-            <LoginContainer get_token={this.props.get_token} token={this.props.token} loginUser={this.props.loginUser} user={this.props.user}/>
+            <LoginContainer 
+            get_token={this.props.get_token} 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            loginUser={this.props.loginUser} 
+            user={this.props.user}/>
           </Route>
           <Route path="/signup">
-            <SignupContainer get_token={this.props.get_token} token={this.props.token} signupUser={this.props.signupUser} user={this.props.user}/>
+            <SignupContainer 
+            get_token={this.props.get_token} 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            signupUser={this.props.signupUser} 
+            user={this.props.user}/>
           </Route>
           <Route path="/welcome">
-            <User token={this.props.token} user={this.props.user}/>
+            <User 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            user={this.props.user}/>
           </Route>
           <Route path="/logout">
             <Logout />
           </Route>
           <Route exact path="/" >
-            <Home token={this.props.token} logoutUser={this.props.logoutUser} user={this.props.user}/>
+            <Home 
+            get_token={this.props.get_token} 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            logoutUser={this.props.logoutUser} 
+            user={this.props.user}/>
           </Route>
         </Switch>
       </div>
@@ -71,7 +99,8 @@ const mapDispatchToProps = dispatch => ({
     get_token: () => dispatch(getToken()),
     signupUser: (token, username, password) => dispatch(signup(token, username, password)),
     loginUser: (token, username, password) => dispatch(login(token, username, password)),
-    logoutUser: token => dispatch(logout(token))
+    logoutUser: token => dispatch(logout(token)),
+    setCurrentUser: () => dispatch(setCurrentUser())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

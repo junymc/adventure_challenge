@@ -27,6 +27,7 @@ export const updateAdventure = (csrf_token, id, lastScratchedAdventure) => {
             
             console.log('patched!')
             const scratched = await res.json()
+            dispatch({ type: 'SCRATCH_ADVENTURE', payload: scratched})
             // figure out how to await dispatch
         }catch(error){
             console.log(error)

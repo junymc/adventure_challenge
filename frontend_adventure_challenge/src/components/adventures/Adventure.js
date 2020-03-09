@@ -11,8 +11,8 @@ function Adventure(props) {
 
     const onClick = (event) => {
         props.scratchAdventure(id)
-        const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id == id)
- 
+        const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === id)
+ console.log(props)
         props.updateAdventure(token, id, scratchedAdventure)
         // const user_id = props.adventures.user.id
         // createUserAdventure(token, user_id, id)
