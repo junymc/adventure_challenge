@@ -1,8 +1,8 @@
-class UserAdventuresController < ApplicationController
+class Api::V1::UserAdventuresController < ApplicationController
 
     def create
-        user = User.find(params[:user_id])
-        adventure = Adventure.find(params[:adventure_id])
+        user = User.find(params[:user][:id])
+        adventure = Adventure.find(params[:adventure][:id])
         @user_adventure = UserAdventure.new(user: user, adventure: adventure)   
         if @user_adventure.save
             render json: @user_adventure, status: 200
@@ -14,7 +14,7 @@ class UserAdventuresController < ApplicationController
     private
 
     def user_adventure_params
-        params.require(:user_adventure).permit(:user_id, :adventure_id)
+        params.require(:user_adventure).permit(:user, :adventure)
     end
    
 end

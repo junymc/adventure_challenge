@@ -8,39 +8,40 @@ export function fetchAdventures() {
 }
 
 // write another fetch that request to update the scratch status to be true to API
-export const updateAdventure = (csrf_token, id, lastScratchedAdventure) => {
-    console.log(csrf_token, id, lastScratchedAdventure)
-    // check if I get all the args 
-    return async function (dispatch) {
+// export const updateAdventure = (csrf_token, id, lastScratchedAdventure) => {
+//     console.log(csrf_token, id, lastScratchedAdventure)
+//     // check if I get all the args 
+//     return async function (dispatch) {
 
-        try { 
-            dispatch({ type: 'SCRATCH_ADVENTURE', id })
-            const res = await fetch("http://localhost:3001/api/v1/adventures/" + id, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'X-CSRF-TOKEN': csrf_token
-                    },
-                    body: JSON.stringify(lastScratchedAdventure)
-            })
+//         try { 
+//             dispatch({ type: 'SCRATCH_ADVENTURE', id })
+//             const res = await fetch("http://localhost:3001/api/v1/adventures/" + id, {
+//                     method: 'PATCH',
+//                     headers: {
+//                         'Content-Type': 'application/json',
+//                         'Accept': 'application/json',
+//                         'X-CSRF-TOKEN': csrf_token
+//                     },
+//                     body: JSON.stringify(lastScratchedAdventure)
+//             })
             
-            console.log('patched!')
-            const scratched = await res.json()
-            dispatch({ type: 'SCRATCH_ADVENTURE', payload: scratched})
-            // figure out how to await dispatch
-        }catch(error){
-            console.log(error)
-        }
-    }
-}
+//             console.log('patched!')
+//             const scratched = await res.json()
+//             console.log(scratched)
+//             dispatch({ type: 'SCRATCH_ADVENTURE', payload: scratched})
+//             // figure out how to await dispatch
+//         }catch(error){
+//             console.log(error)
+//         }
+//     }
+// }
 
 export const createUserAdventure = (csrf_token, user, adventure) => {
     console.log(csrf_token, user, adventure)
     return async function (dispatch) {
         try{
             
-            const res = await fetch("http://localhost:3001/api/v1/adventures/:adventure_id/evidences", {
+            const res = await fetch("http://localhost:3001/api/v1/user_adventures", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

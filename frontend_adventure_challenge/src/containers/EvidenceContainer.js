@@ -5,24 +5,19 @@ import { connect } from 'react-redux'
 
 class EvidenceContainer extends React.Component {
 
-    // componentDidMount() {
-    //     console.log(this.props)
-    //     this.props.fetchEvidence()
-    // }
-
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         // debugger
-       return this.props.adventures.adventures.map(adventure => {
+        // const adventure = this.props.adventures.adventures.find(adventure => adventure.id === adventureId)
+       
             return (
-                <div key={Math.random()}>
+                <div>
                     <Evidence
-                    evidence={this.props.evidence}
-                    adventureId={adventure.id}
-                    deleteEvidence={this.props.deleteEvidence} />
+                       evidence={this.props.evidence}
+                    //   adventureId={adventure.id}
+                    deleteEvidence={this.props.deleteEvidence} /> 
                 </div>
             )
-        })
         
     }
 }

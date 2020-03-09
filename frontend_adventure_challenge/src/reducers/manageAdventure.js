@@ -1,7 +1,7 @@
 // import uuid from 'uuid'
 
 function manageAdventure(state = { adventures: [], requesting: false }, action) {
-    // console.log(state)
+    console.log(state)
     // state ={adventures: Array(0), requesting: true}
     
     switch (action.type) {
@@ -16,6 +16,7 @@ function manageAdventure(state = { adventures: [], requesting: false }, action) 
             const updatedAdventures = [...state.adventures]
             const adventureToUpdate = updatedAdventures.find(a => a.id === action.id)
             adventureToUpdate.scratch = true
+
             return {...state, adventures: updatedAdventures}
 
         default:
