@@ -26,7 +26,7 @@ function AdventureEvidence(props) {
                 </div>
                 <div className="child inline-block-child">
                     <EvidenceInput adventureId={ aid } />
-                    </div>
+                </div>
             </div>
         </div>
     )

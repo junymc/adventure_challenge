@@ -36,7 +36,6 @@ function Adventure(props) {
                 {props.user !== null && Object.keys(props.user).length > 0 ? <button id="btn" onClick={onClick}>Challenge!</button> : 
                 <>
                 <p> - Sign up or Log in to see more details about this adventure and challenge! - </p>
-                
                 <Link to="/signup">
                     <button id="btn">Signup</button>
                 </Link>

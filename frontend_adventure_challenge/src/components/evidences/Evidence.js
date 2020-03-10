@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 function Evidence(props) {
-    // console.log(props)
+    console.log(props)
     const { description, image, id, adventureId, deleteEvidence } = props
     const evidence = {
             key: Math.random(), 

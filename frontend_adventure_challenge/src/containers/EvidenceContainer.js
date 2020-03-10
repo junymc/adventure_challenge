@@ -1,5 +1,6 @@
 import React from 'react'
 import Evidence from  '../components/evidences/Evidence'
+import AdventureEvidence from '../components/evidences/AdventureEvidence'
 // import fetchEvidence from '../actions/fetchEvidence'
 import { connect } from 'react-redux'
 
@@ -12,6 +13,7 @@ class EvidenceContainer extends React.Component {
        
             return (
                 <div>
+                    <AdventureEvidence />
                     <Evidence
                        evidence={this.props.evidence}
                     //   adventureId={adventure.id}

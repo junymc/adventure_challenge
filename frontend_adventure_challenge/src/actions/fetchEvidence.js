@@ -1,5 +1,5 @@
-export const fetchEvidence = (csrf_token, eviObjt, adventureId) => {
-    console.log(csrf_token, eviObjt, adventureId)
+export const fetchEvidence = (csrf_token, image, description, adventureId) => {
+    console.log(csrf_token, image, description, adventureId)
     return async function (dispatch) {
         try{
             const res = await fetch("http://localhost:3001/api/v1/adventures/adventure_id/evidences", {
@@ -9,7 +9,7 @@ export const fetchEvidence = (csrf_token, eviObjt, adventureId) => {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': csrf_token
                 },
-                body: JSON.stringify({eviObjt, adventureId}),
+                body: JSON.stringify({csrf_token, image, description, adventureId}),
                 credentials: 'include'
             })
             console.log("created!")
@@ -27,46 +27,25 @@ export const fetchEvidence = (csrf_token, eviObjt, adventureId) => {
     }
 }
 
-// export function fetchEvidence(eviObjt) {
-// console.log(eviObjt)
-//     const data = {
-//         description: eviObjt.description,
-//         image: eviObjt.image
-//     }
-
-//     return (dispatch) => {
-//         fetch("http://localhost:3001/api/v1/users/user_id/adventures/adventure_id/evidences", {
-//             method: "POST",
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Accept': 'application/json'
-//             },
-//             body: JSON.stringify(data)
-//         })
-//             .then(res => res.json())
-//             .then(data => dispatch({ type: 'ADD_EVIDENCE', evidence: data }))
-//     }
-// }
-
-// export function deleteEvidence(id) {
-//     return {type: 'DELETE_EVIDENCE', id} 
+export const deleteEvidence = (csrf_token, id) => {
+  console.log(csrf_token, id)
+    return async function (dispatch) {
+        try{
     
-// }
-
-// export const fetchEvidence = (description, image) => {
-//     return async function (dispatch) {
-//         try{
-//             dispatch({
-//                 type: 'ADD_EVIDENCE',
-//                 payload: {
-//                     description: description,
-//                     image: image
-//                     }
-//                 }
-//             })
-
-//             const res = await fetch("http://localhost:3001/api/v1/users/")
-//         }
-//     }
-// }
+            const res = await fetch("http://localhost:3001/api/v1/adventures/adventure_id/evidences/" + id,{
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrf_token
+                },
+                credentials: 'include'
+            })
+            dispatch({ type: 'DELETE_EVIDENCE' })
+            return await res.json()
+        }catch(error){
+            console.log(error)
+        }
+    }
+}
 

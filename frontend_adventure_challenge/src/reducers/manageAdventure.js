@@ -10,6 +10,7 @@ function manageAdventure(state = { adventures: [], requesting: false }, action) 
             return {...state, requesting: true}
 
         case 'ADD_ADVENTURES':
+            console.log(action.adventures)
             return {adventures: action.adventures, requesting: false}
 
         case 'SCRATCH_ADVENTURE':

@@ -4,6 +4,7 @@ function manageEvidence(state = {}, action) {
     
     switch (action.type) {
         case 'ADD_EVIDENCE':
+            console.log(action.payload)
             // state = {evidence: {…}} which is evidence: {evidence: {…}, adventureId: "9"}
             // which is evidence: {evidence: {description: "aaa", image: "ss"}, adventureId: "9"}
             return {...state, evidence: action.evidence }

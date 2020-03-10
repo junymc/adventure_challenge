@@ -1,9 +1,10 @@
 class Api::V1::EvidencesController < ApplicationController
 
     def create
-        if params[:adventure_id]
-            adventure = Adventure.find(params[:adventure_id])
-            evidence = adventure.evidences.build(evidence_params)
+        # byebug
+        if params[:adventureId]
+            adventure = Adventure.find(params[:adventureId])
+            evidence = adventure.evidence.build({image: params[:image], description: params[:description], adventureId: params[:adventureId]})
             evidence.user = current_user
         end
         if evidence.save
@@ -32,6 +33,6 @@ class Api::V1::EvidencesController < ApplicationController
 
     private
     def evidence_params
-        params.require(:evidence).permit(:image, :description, :adventure_id)
+        params.require(:evidence).permit(:image, :description, :adventure)
     end
 end
