@@ -55,14 +55,16 @@ export const login = (csrf_token, username, password) => {
 }
 
 export const setCurrentUser = () => {
+    
     return async (dispatch) => {
         try {
             const res = fetch("http://localhost:3001/api/v1/current_user", {
                 credentials: 'include'
             })
-            if(!res.ok){
-                throw res
-            }
+            // if(!res.ok){
+            //     throw res
+            // }
+            // it's not calling the setCurrentUser()
             const user = await res.json()
             dispatch({ type: 'SET_USER',
                        payload: user

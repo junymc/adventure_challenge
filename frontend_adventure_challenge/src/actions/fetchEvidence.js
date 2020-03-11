@@ -1,5 +1,6 @@
 export const fetchEvidence = (csrf_token, image, description, adventureId) => {
     console.log(csrf_token, image, description, adventureId)
+    console.log(JSON.stringify({csrf_token, image, description, adventureId}))
     return async function (dispatch) {
         try{
             const res = await fetch("http://localhost:3001/api/v1/adventures/adventure_id/evidences", {

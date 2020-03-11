@@ -3,9 +3,7 @@ class Api::V1::EvidencesController < ApplicationController
     def create
         # byebug
         if params[:adventureId]
-            adventure = Adventure.find(params[:adventureId])
-            evidence = adventure.evidence.build({image: params[:image], description: params[:description], adventureId: params[:adventureId]})
-            evidence.user = current_user
+            evidence = Evidence.new(image: params[:image], description: params[:description], adventure_id: params[:adventureId].to_i)
         end
         if evidence.save
             render json: evidence, status: 200
@@ -21,12 +19,12 @@ class Api::V1::EvidencesController < ApplicationController
     end
 
     def show
-        @evidence = Evidence.fine(params[:id])
+        @evidence = Evidence.find(params[:id])
         render json: @evidence, status: 200
     end
 
     def delete
-        @evidence = Evidence.fine(params[:id])
+        @evidence = Evidence.find(params[:id])
         @evidence.delete
         render json: {message: "Evidence is deleted!"}, status: 200
     end

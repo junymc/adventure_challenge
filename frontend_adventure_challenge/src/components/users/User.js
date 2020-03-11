@@ -17,10 +17,13 @@ class User extends React.Component {
 
         return (
             <div>
-                <h1>Welcome Back!</h1>
-                <h2>Ready to Challenge more adventures?</h2>
+                <h1>Welcome!</h1>
+                <h2>Ready to Challenge adventures?</h2>
                 <Link to="/adventures">
-                    <button id="btn">Go to Adventure List</button>
+                    <button id="btn">Adventure List</button>
+                </Link>
+                <Link to="/userpage">
+                    <button id="btn">My page</button>
                 </Link>
                 <button id="btn" onClick={this.deleteHandler}>Logout</button>
             </div>

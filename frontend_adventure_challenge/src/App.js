@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
 
@@ -7,23 +7,25 @@ import AdventuresContainer from './containers/AdventuresContainer'
 import EvidenceContainer from './containers/EvidenceContainer'
 import AdventureEvidence from './components/evidences/AdventureEvidence'
 import Home from './components/Home'
-import LoginContainer from './containers/LoginContainer';
-import SignupContainer from './containers/SignupContainer';
+import LoginContainer from './containers/LoginContainer'
+import SignupContainer from './containers/SignupContainer'
 import User from './components/users/User'
 import Logout from './components/Logout'
 import { getToken } from './actions/auth'
 import { signup, login, logout, setCurrentUser } from './actions/user'
 import { connect } from 'react-redux'
+import UserContainer from './containers/UserContainer'
 
 class App extends React.Component {
 
 componentDidMount() {
     this.props.get_token()
     this.props.setCurrentUser()
-    console.log(this.props)
+    // console.log(this.props)
   }  
 
 render() {
+  console.log(this.props.user, "pika")
   return (
     <Router>
       <div className="App">
@@ -65,6 +67,12 @@ render() {
           </Route>
           <Route path="/welcome">
             <User 
+            token={this.props.token} 
+            setCurrentUser={this.props.setCurrentUser}
+            user={this.props.user}/>
+          </Route>
+          <Route path="/userpage">
+            <UserContainer 
             token={this.props.token} 
             setCurrentUser={this.props.setCurrentUser}
             user={this.props.user}/>

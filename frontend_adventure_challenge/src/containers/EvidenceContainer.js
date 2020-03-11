@@ -12,12 +12,16 @@ class EvidenceContainer extends React.Component {
         // const adventure = this.props.adventures.adventures.find(adventure => adventure.id === adventureId)
        
             return (
-                <div>
-                    <AdventureEvidence />
-                    <Evidence
-                       evidence={this.props.evidence}
-                    //   adventureId={adventure.id}
-                    deleteEvidence={this.props.deleteEvidence} /> 
+                <div className="parent">
+                    <div className="child inline-block-child">
+                        <AdventureEvidence />
+                    </div>
+                    <div className="child inline-block-child">
+                        <Evidence
+                        evidence={this.props.evidence}
+                        //   adventureId={adventure.id}
+                        deleteEvidence={this.props.deleteEvidence} /> 
+                    </div>
                 </div>
             )
         

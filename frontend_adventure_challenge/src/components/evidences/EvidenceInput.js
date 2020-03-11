@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { fetchEvidence } from '../../actions/fetchEvidence'
 
 class EvidenceInput extends React.Component {
@@ -31,6 +31,7 @@ class EvidenceInput extends React.Component {
             description: '',
             image: ''
         })
+        this.props.history.push(`/adventures/${this.props.adventureId}/evidence`)
     }
 
     render() {
@@ -72,4 +73,4 @@ const mapDispatchToProps = dispatch => ({
     fetchEvidence: (token, image, description, adventureId) => dispatch(fetchEvidence(token, image, description, adventureId))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(EvidenceInput);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EvidenceInput));
