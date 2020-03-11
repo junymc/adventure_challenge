@@ -33,17 +33,12 @@ function Adventure(props) {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 {props.user ? <li className={scratch === true ? "shown" : "hidden"}> Description: {description} </li> : null}
-                {props.user !== null && Object.keys(props.user).length > 0 ? <button id="btn" onClick={onClick}>Challenge!</button> : 
-                <>
-                <p> - Sign up or Log in to see more details about this adventure and challenge! - </p>
-                <Link to="/signup">
-                    <button id="btn">Signup</button>
-                </Link>
-                <Link to="/login">
-                    <button id="btn">Login</button>
-                </Link> 
-                </>
-            }
+                {props.user !== null && Object.keys(props.user).length > 0 ? 
+                    <button id="btn" onClick={onClick}>Challenge!</button> : 
+                    <div>
+                    - <a href="/signup" class="linkw" >Sign up</a> or <a href="/login" class="linkw" >Log in</a> to see more details about this adventure and challenge! -
+                    </div>
+                }
                 <Link to={`/adventures/${id}`}>
                 {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"} >Completed!</button> : null}
                 </Link>

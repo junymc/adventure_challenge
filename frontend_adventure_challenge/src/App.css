@@ -6,7 +6,8 @@ body {
 	margin: 0;
   padding: 0;
   background-image: url(./camera.png);
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
   background-size: cover;
 
 	color: white;
@@ -34,12 +35,17 @@ a:link {
   text-decoration: none;
 }
 
+a.linkw {
+  text-decoration: underline;
+  color: white;
+}
+
 .boxed {
   box-sizing: border-box;
   transform: translate(30%, 50%);
   background: rgba(40, 41, 41, 0.5);
   border: transparent;
-  width: 800px;
+  width: 60%;
   height: 270px;
   margin: center;
   margin-top: 25px;
@@ -118,7 +124,7 @@ a:link {
 }
 
 .evidence-form {
-  margin-left: 400px;
+  margin-left: 30%;
 }
 
 /* .inline-block-child {
