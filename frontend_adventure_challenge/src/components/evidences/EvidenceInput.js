@@ -11,7 +11,6 @@ class EvidenceInput extends React.Component {
     }
 
     handleOnChange = (event) => {
-        console.log(event.target.value)
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -20,10 +19,6 @@ class EvidenceInput extends React.Component {
     // this function is not firing.. so it doesn't hit the fetch so doesn't dispatch reducer
     handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(this.props)
-        // const eviDescription = this.state.description
-        // const eviImage = this.state.image
-        // const eviObjt = { eviDescription, eviImage }
         const image = this.state.image
         const description = this.state.description
         this.props.addEvidence(this.props.token, image, description, this.props.adventureId)
@@ -62,7 +57,7 @@ class EvidenceInput extends React.Component {
 const mapStateToProps = state => {
     console.log(state)
     return {
-        
+        token: state.csrf_token,
         evidence: state.evidence
     }
 }

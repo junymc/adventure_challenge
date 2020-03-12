@@ -1,15 +1,19 @@
 import React from 'react'
 import Evidence from  '../components/evidences/Evidence'
-// import Adventure from '../components/adventures/Adventure'
-// import fetchEvidence from '../actions/fetchEvidence'
+import Adventures from '../components/adventures/Adventures'
+import { getEvidence } from '../actions/fetchEvidence'
 import { connect } from 'react-redux'
 
 class EvidenceContainer extends React.Component {
 
+    componentDidMount() {
+        this.props.getEvidence()
+        console.log(this.props)
+    }
+
     render() {
         console.log(this.props)
         // debugger
-        // const adventure = this.props.adventures.adventures.find(adventure => adventure.id === adventureId)
         const adventure_id = this.props.evidence.adventure_id
         const adventure = this.props.adventures.adventures.find(adventure => adventure.id === adventure_id)
         console.log(adventure, adventure_id)
@@ -43,8 +47,7 @@ class EvidenceContainer extends React.Component {
 const mapStateToProps = ({ evidence, adventures }) => ({ evidence, adventures })
 
 const mapDispatchToProps = dispatch => ({
-   addEvidence: evidence => dispatch({ type: 'ADD_EVIDENCE', evidence }),
-//    fetchEvidence: () => dispatch(fetchEvidence()),
+   getEvidence: () => dispatch(getEvidence()),
    deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
 })
 

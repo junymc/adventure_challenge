@@ -21,11 +21,9 @@ class App extends React.Component {
 componentDidMount() {
     this.props.get_token()
     this.props.setCurrentUser()
-    // console.log(this.props)
   }  
 
 render() {
-  console.log(this.props.user, "pika")
   return (
     <Router>
       <div className="App">
@@ -96,7 +94,6 @@ render() {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     token: state.csrf_token,
     user: state.user

@@ -5,12 +5,10 @@ function manageEvidence(state = {}, action) {
     switch (action.type) {
         case 'ADD_EVIDENCE':
             console.log(action.payload)
-            // state = {evidence: {…}} which is evidence: {evidence: {…}, adventureId: "9"}
-            // which is evidence: {evidence: {description: "aaa", image: "ss"}, adventureId: "9"}
             return {...state, ...action.payload}
 
         case 'SET_EVIDENCE':
-            return {...state, }
+            return {...state, ...action.payload}
            
         case 'DELETE_EVIDENCE':
             return { ...state, ...state.evidences.filter(evidence => evidence.id !== action.id)}

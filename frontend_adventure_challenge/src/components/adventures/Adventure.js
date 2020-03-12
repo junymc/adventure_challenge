@@ -5,11 +5,9 @@ import { withRouter } from 'react-router-dom'
 import { createUserAdventure } from '../../actions/fetchAdventures'
 
 function Adventure(props) {
-    console.log(props)
-    // console.log(props)
+    
     const { name, category, cost, time, duration, scratch, description, id, token} = props
 
-    // the onClick is not getting hit. can not find the right adventure. for some reason it stays as scratched
     const onClick = (event) => {
         props.scratchAdventure(id)
         const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === id)
@@ -17,12 +15,6 @@ function Adventure(props) {
         props.createUserAdventure(token, props.user, scratchedAdventure)
  
     }
-
-    // const addAdventureEvidence = (event) => {
-    //     console.log(id)
-    //     const adventure = props.adventures.adventures.find(adventure => adventure.id === id)
-    //     props.createUserAdventure(token, props.user, adventure)
-    // }
 
     return (
         <div className="boxed">

@@ -4,12 +4,6 @@ import SignupForm from '../components/users/SignupForm'
 
 class SignupContainer extends React.Component {
 
-    // componentDidMount() {
-    //     this.props.get_token()
-    //     this.props.setCurrentUser()
-    //     console.log(this.props)
-    // }
-
     submitHandler = async (username, password) => {
         await this.props.signupUser(this.props.token, username, password)
         console.log("Signup!")

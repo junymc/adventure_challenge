@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 
 const SignupForm = (props) => {    
 
-    console.log(props)
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 

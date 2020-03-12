@@ -2,8 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import EvidenceInput from './EvidenceInput';
-// import Adventure from '../adventures/Adventure'
-// import { updateAdventure } from '../../actions/fetchAdventures'
 
 function AdventureEvidence(props) {
     // console.log(props)

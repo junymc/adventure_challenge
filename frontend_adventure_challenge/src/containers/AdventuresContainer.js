@@ -6,12 +6,10 @@ import { connect } from 'react-redux'
 class AdventuresContainer extends React.Component {
 
     componentDidMount() {
-        // console.log(this.props)
         this.props.fetchAdventures()
     }
 
     render() {
-        // console.log(this.props)
         return (
             <div className="adventures">
                 <h1 className="title">- Adventures List -</h1>

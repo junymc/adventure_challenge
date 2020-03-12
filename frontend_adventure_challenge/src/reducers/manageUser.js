@@ -1,7 +1,6 @@
 function manageUser(state = {}, action) {
     switch(action.type) {
         case 'LOGIN_USER':
-            console.log(action.payload)
             return action.payload
         
         case 'SIGNUP_USER':
