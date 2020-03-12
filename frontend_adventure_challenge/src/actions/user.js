@@ -58,7 +58,7 @@ export const setCurrentUser = () => {
     
     return async (dispatch) => {
         try {
-            const res = fetch("http://localhost:3001/api/v1/current_user", {
+            const res = await fetch("http://localhost:3001/api/v1/current_user", {
                 credentials: 'include'
             })
             // if(!res.ok){
@@ -66,6 +66,7 @@ export const setCurrentUser = () => {
             // }
             // it's not calling the setCurrentUser()
             const user = await res.json()
+            console.log(user)
             dispatch({ type: 'SET_USER',
                        payload: user
             })

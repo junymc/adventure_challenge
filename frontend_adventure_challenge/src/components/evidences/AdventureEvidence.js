@@ -39,9 +39,4 @@ const mapStateToProps = (state) => {
  }
 }
 
-const mapDispatchToProps = dispatch => ({
-    // fetchAdventures: () => dispatch(fetchAdventures()),
-    // updateAdventure: () => dispatch(updateAdventure())
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AdventureEvidence);
+export default connect(mapStateToProps)(AdventureEvidence);

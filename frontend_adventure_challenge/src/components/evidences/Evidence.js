@@ -1,27 +1,36 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { fetchEvidence, deleteEvidence } from '../../actions/fetchEvidence'
 
-function Evidence(props) {
-    console.log(props)
-    const { description, image, id, adventureId, deleteEvidence } = props
-    const evidence = {
-            key: Math.random(), 
-            id: id,
-            description: description,
-            image: image,
-            adventureId: adventureId,
-            deleteEvidence: deleteEvidence 
+class Evidence extends React.Component {
+
+    componentDidMount() {
+        this.props.fetchEvidence()
     }
 
-    return (
-        <div>
-            <li>
-                {evidence.description}
-                {evidence.image}
-                <button id="btn" onClick={() => props.deleteEvidence(id)}>X</button>
-            </li>
-        </div>
-    )
+    render() {
+        console.log(this.props)
+        // const { description, image, id, adventureId, deleteEvidence } = this.props
+        // 
+        const id = this.props.evidence.id
+        //         key: Math.random(), 
+        //         id: id,
+        //         description: description,
+        //         image: image,
+        //         adventureId: adventureId,
+        //         deleteEvidence: deleteEvidence 
+        // }
+
+        return (
+            <div>
+                <li>
+                    {this.props.evidence.description}
+                    {this.props.evidence.image}
+                    <button id="btn" onClick={() => this.props.deleteEvidence(id)}>X</button>
+                </li>
+            </div>
+        )
+    }
 }
 
 
@@ -33,6 +42,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
+    fetchEvidence: () => dispatch(fetchEvidence( )),
     deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
 })
 
