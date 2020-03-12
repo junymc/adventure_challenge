@@ -20,7 +20,8 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background: rgb(37, 33, 30);
+  background: rgba(22, 22, 22, 0.5);
+  /* background: rgb(37, 33, 30); */
   color: white;
 }
 
@@ -40,6 +41,13 @@ a.linkw {
   color: white;
 }
 
+.horizontal-scroll-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+}
+  
 .boxed {
   box-sizing: border-box;
   transform: translate(30%, 50%);
@@ -57,6 +65,7 @@ a.linkw {
   color: #fff;
   top: -10%;
   left: 50%;
+  display: inline-block;
 }
 
 .shown {

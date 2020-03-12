@@ -22,8 +22,10 @@ class Adventures extends React.Component {
         ))
 
         return (
-            <div>
-                { adventures }
+            <div className="horizontal-scroll-wrapper">
+                <div>
+                    { adventures }
+                </div>
             </div>
         )
     }
