@@ -59,7 +59,7 @@ body {
 }.horizontal-scroll-wrapper{
   position:absolute;
   display:block;
-  top:-15%;
+  top:-35%;
   left:0;
   width:60%;
   max-height:70%;
@@ -211,7 +211,7 @@ a.linkw {
   font-size: 60px;
   text-shadow: 3px 3px rgb(85, 77, 77);
   margin-bottom: 0px;
-  padding-top: 50px;
+  padding-top: 10px;
 }
 
 #ul {

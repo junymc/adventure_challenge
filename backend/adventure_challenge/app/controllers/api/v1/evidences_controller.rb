@@ -19,8 +19,13 @@ class Api::V1::EvidencesController < ApplicationController
     end
 
     def show
-        @evidence = Evidence.find(params[:id])
+        @evidence = Evidence.find(params[:adventureId])
         render json: @evidence, status: 200
+    end
+
+    def index
+        @evidences = Evidence.all
+        render json: @evidences, status: 200
     end
 
     def delete
