@@ -28,7 +28,7 @@ function Adventure(props) {
                 {props.user !== null && Object.keys(props.user).length > 0 ? 
                     <button id="btn" onClick={onClick}>Challenge!</button> : 
                     <div>
-                    - <a href="/signup" class="linkw" >Sign up</a> or <a href="/login" class="linkw" >Log in</a> to see more details about this adventure and challenge! -
+                    - <a href="/signup" className="linkw" >Sign up</a> or <a href="/login" className="linkw" >Log in</a> to see more details about this adventure and challenge! -
                     </div>
                 }
                 <Link to={`/adventures/${id}`}>

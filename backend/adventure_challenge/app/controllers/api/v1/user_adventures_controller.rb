@@ -11,6 +11,11 @@ class Api::V1::UserAdventuresController < ApplicationController
         end
     end
 
+    def index
+        @user_adventures = UserAdventure.all
+        render json: @user_adventures, status: 200
+    end
+    
     private
 
     def user_adventure_params

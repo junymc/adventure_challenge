@@ -58,7 +58,8 @@ const mapStateToProps = state => {
     console.log(state)
     return {
         token: state.csrf_token,
-        evidence: state.evidence
+        evidence: state.evidence,
+        userAdventure: state.userAdventure
     }
 }
 

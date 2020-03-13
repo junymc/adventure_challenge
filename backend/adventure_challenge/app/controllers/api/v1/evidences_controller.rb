@@ -19,7 +19,9 @@ class Api::V1::EvidencesController < ApplicationController
     end
 
     def show
-        @evidence = Evidence.find(params[:adventureId])
+        if params[:adventureId]
+            @evidence = Evidence.find(params[:adventureId])
+        end
         render json: @evidence, status: 200
     end
 

@@ -17,17 +17,7 @@ class Evidence extends React.Component {
 
     render() {
         console.log(this.props)
-        // const { description, image, id, adventureId, deleteEvidence } = this.props
-        // 
-        // const id = this.props.evidence.id
-        //         key: Math.random(), 
-        //         id: id,
-        //         description: description,
-        //         image: image,
-        //         adventureId: adventureId,
-        //         deleteEvidence: deleteEvidence 
-        // }
-
+        
         return (
             <div>
                 <li>
