@@ -21,7 +21,6 @@ body {
   padding: 0;
   overflow: hidden;
   background: rgba(22, 22, 22, 0.5);
-  /* background: rgb(37, 33, 30); */
   color: white;
 }
 
@@ -30,6 +29,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: flex;
+}
+
+a:link {
+  text-decoration: none;
 }
 
 .horizontal-scroll-wrapper{
@@ -56,7 +59,9 @@ body {
 .squares > div{
   width:400px;
   height:400px;
-}.horizontal-scroll-wrapper{
+}
+
+.horizontal-scroll-wrapper{
   position:absolute;
   display:block;
   top:-35%;
@@ -82,13 +87,14 @@ body {
   height:400px;
 }
 
-a:link {
-  text-decoration: none;
+.linkw {
+  text-decoration: underline;
+  color: rgb(44, 43, 42);
 }
 
-a.linkw {
+.linkw:hover {
   text-decoration: underline;
-  color: white;
+  color: rgb(202, 202, 200);
 }
   
 .boxed {
