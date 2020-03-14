@@ -4,14 +4,14 @@ import { useParams } from 'react-router-dom'
 import EvidenceInput from './EvidenceInput';
 
 function AdventureEvidence(props) {
-    // console.log(props)
+    console.log(props)
     let { aid } = useParams();
     // debugger
     const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === parseInt(aid))
 
     return (
         <div className="boxed">
-            <div className="parent">
+            <div className="parent1">
                 <div className="child inline-block-child">
                     <ul id="ul">
                         <li> Name: {scratchedAdventure.name} </li>
@@ -21,7 +21,7 @@ function AdventureEvidence(props) {
                         <li> Duration: {scratchedAdventure.duration} </li>
                         <li> Description: {scratchedAdventure.description} </li>
                     </ul>
-                </div>
+                </div>    
                 <div className="child inline-block-child">
                     <EvidenceInput adventureId={ aid } />
                 </div>

@@ -41,7 +41,7 @@ class EvidenceInput extends React.Component {
                       onChange={(event) => this.handleOnChange(event)} />
                     <input
                       name="image"
-                      type="text"
+                      type="file"
                       value={this.state.image}
                       placeholder="image"
                       onChange={(event) => this.handleOnChange(event)} />

@@ -223,3 +223,33 @@ a:link {
 #ul {
   margin-bottom: 2px;
 }
+
+.child1 {
+  width: 400px;
+  height: 450px;
+  background-color: rgba(40, 41, 41, 0.5);
+  margin-top: 70px;
+  margin-left: 13%;
+  color: white;
+  padding: 30px;
+  text-align: left;
+}
+
+.child2 {
+  width: 400px;
+  height: 450px;
+  background-color: rgba(40, 41, 41, 0.5);
+  margin-top: -510px;
+  margin-left: 53%;
+  color: white;
+  padding: 30px;
+  text-align: left;
+}
+
+.text {
+  font-size: 60px;
+  text-shadow: 3px 3px rgb(85, 77, 77);
+  margin-bottom: 0px;
+  margin-top: 2%;
+  padding-top: 10px;
+}

@@ -17,9 +17,10 @@ class EvidenceContainer extends React.Component {
             )
         }
         return (
-            <div className="boxed">
+            <div className="bigbox">
+                <h2 className="text">Good job! You completed the challenge!!</h2>
                 <div className="parent">
-                    <div className="child inline-block-child">
+                    <div className="child1">
                         <ul id="ul">
                             <li> Name: {adventure.name} </li>
                             <li> Category: {adventure.category} </li>
@@ -29,7 +30,7 @@ class EvidenceContainer extends React.Component {
                             <li> Description: {adventure.description} </li>
                         </ul>
                     </div>
-                    <div className="child inline-block-child">
+                    <div className="child2">
                         <Evidence
                             evidence={this.props.evidence}
                             adventureId={adventure.id}

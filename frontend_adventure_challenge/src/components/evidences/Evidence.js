@@ -21,10 +21,12 @@ class Evidence extends React.Component {
         return (
             <div>
                 <li>
-                    {this.props.evidence.description}
                     {this.props.evidence.image}
-                    <button id="btn" onClick={this.handleOnClick}>X</button>
                 </li>
+                <li>
+                    {this.props.evidence.description}
+                </li>
+                <button id="btn" onClick={this.handleOnClick}>X</button>
             </div>
         )
     }
