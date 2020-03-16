@@ -8,10 +8,12 @@ function manageEvidence(state = {}, action) {
             return {...state, ...action.payload}
 
         case 'SET_EVIDENCE':
-            return {...state, ...action.payload}
+            return {...action.payload}
            
         case 'DELETE_EVIDENCE':
-            return { ...state, ...state.evidences.filter(evidence => evidence.id !== action.id)}
+            console.log(action)
+            // console.log(state) state is what user just deleted..
+            return { ...state, ...state.evidence.filter(evidence => evidence.id !== action.id)}
 
         default:
             return state

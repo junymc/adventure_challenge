@@ -5,11 +5,10 @@ import EvidenceInput from '../components/evidences/EvidenceInput'
 
 class UserContainer extends React.Component {
     render() {
-        console.log(this.props)
+
         return (
-            <div className="rowC">
-                <AdventureEvidence />
-                <Evidence />
+            <div>
+               <h1>User Page</h1>
             </div>
         )
     }

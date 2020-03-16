@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { getEvidence, deleteEvidence } from '../../actions/fetchEvidence'
 
 class Evidence extends React.Component {
 
-    componentDidMount() {
-        this.props.getEvidence()
-    }
+    // componentDidMount() {
+    //     this.props.getEvidence()
+    // }
 
     handleOnClick = async () => {
         console.log(this.props)
@@ -14,7 +15,7 @@ class Evidence extends React.Component {
         const id = this.props.evidence.id
         await this.props.deleteEvidence(this.props.token, id)
         console.log("deleted")
-        this.props.history.push("/mypage")
+        this.props.history.push("/userpage")
     }
 
     render() {
@@ -44,4 +45,4 @@ const mapDispatchToProps = dispatch => ({
     deleteEvidence: (token, id) => dispatch(deleteEvidence(token, id))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Evidence);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Evidence));

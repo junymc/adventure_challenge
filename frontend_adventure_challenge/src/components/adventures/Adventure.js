@@ -25,10 +25,11 @@ function Adventure(props) {
                 <li> Time: {time} </li>
                 <li> Duration: {duration} </li>
                 {props.user ? <li className={scratch === true ? "shown" : "hidden"}> Description: {description} </li> : null}
+            </ul>
                 {props.user !== null && Object.keys(props.user).length > 0 ? 
                     <button id="btn" onClick={onClick}>Challenge!</button> : 
                     <>
-                        - <Link to="/signup" className="linkw">Signup</Link> or <Link to="Login" className="linkw">Login</Link> to see more details about this adventure and challenge! -
+                        <p className="info">- <Link to="/signup" className="linkw">Signup</Link> or <Link to="Login" className="linkw">Login</Link> to see more details about this adventure and challenge! -</p>
                     </>
                 }
                 {props.user !== null && Object.keys(props.user).length > 0 ?
@@ -36,7 +37,7 @@ function Adventure(props) {
                         <button id="btn" className={scratch ? "shown" : "hidden"} >Completed!</button> 
                     </Link> : null
                 }
-            </ul>
+            
         </div>
     )
 }

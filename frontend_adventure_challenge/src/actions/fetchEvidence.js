@@ -29,10 +29,10 @@ export const addEvidence = (csrf_token, image, description, adventureId) => {
     }
 }
 
-export const getEvidence = () => {
+export const getEvidence = (id) => {
     return async function (dispatch) {
         try{
-            const res = await fetch("http://localhost:3001/api/v1/adventures/adventure_id/evidences", {
+            const res = await fetch(`http://localhost:3001/api/v1/adventures/${id}/evidences`, {
                 credentials: 'include'
             })
             if(!res.ok){
@@ -64,7 +64,7 @@ export const deleteEvidence = (csrf_token, id) => {
                 },
                 credentials: 'include'
             })
-            dispatch({ type: 'DELETE_EVIDENCE' })
+            dispatch({ type: 'DELETE_EVIDENCE', id })
             return await res.json()
         }catch(error){
             console.log(error)
