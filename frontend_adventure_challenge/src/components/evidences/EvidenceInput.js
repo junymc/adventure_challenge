@@ -36,12 +36,13 @@ class EvidenceInput extends React.Component {
                 <form onSubmit={this.handleOnSubmit}>
                     <input
                       name="description"
+                      type="text"
                       value={this.state.description}
                       placeholder="Description"
                       onChange={(event) => this.handleOnChange(event)} />
                     <input
                       name="image"
-                      type="file"
+                      type="text"
                       value={this.state.image}
                       placeholder="image"
                       onChange={(event) => this.handleOnChange(event)} />

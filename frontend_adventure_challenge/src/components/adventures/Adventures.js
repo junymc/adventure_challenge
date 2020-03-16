@@ -9,7 +9,7 @@ class Adventures extends React.Component {
     render() {
         
         const adventures = this.props.adventures.adventures.map(adventure => (
-            <Adventure key={Math.random()} 
+            <Adventure key={adventure.id} 
                     id={adventure.id}
                     name={adventure.name}
                     category={adventure.category}

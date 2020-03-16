@@ -30,7 +30,7 @@ class Api::V1::EvidencesController < ApplicationController
         render json: @evidences, status: 200
     end
 
-    def delete
+    def destroy
         @evidence = Evidence.find(params[:id])
         @evidence.delete
         render json: {message: "Evidence is deleted!"}, status: 200

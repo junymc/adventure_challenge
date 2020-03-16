@@ -8,9 +8,11 @@ class Evidence extends React.Component {
         this.props.getEvidence()
     }
 
-    handleOnClick() {
+    handleOnClick = async () => {
+        console.log(this.props)
+        // const evidence = this.props.evidence.find(evidence => evidence.adventure_id === this.props.adventureId)
         const id = this.props.evidence.id
-        this.props.deleteEvidence(id)
+        await this.props.deleteEvidence(this.props.token, id)
         console.log("deleted")
         this.props.history.push("/mypage")
     }
@@ -19,14 +21,10 @@ class Evidence extends React.Component {
         console.log(this.props)
         
         return (
-            <div>
-                <li>
-                    {this.props.evidence.image}
-                </li>
-                <li>
-                    {this.props.evidence.description}
-                </li>
-                <button id="btn" onClick={this.handleOnClick}>X</button>
+            <div className="evidence">
+                <img src={this.props.evidence.image} alt="image" height="350" width="300"/>   
+                <p>{this.props.evidence.description}</p>
+                <button id="btn" onClick={this.handleOnClick}>Delete</button>
             </div>
         )
     }
@@ -36,13 +34,14 @@ class Evidence extends React.Component {
 const mapStateToProps = state => {
     return {
         evidence: state.evidence,
-        adventures: state.adventures
+        adventures: state.adventures,
+        token: state.csrf_token
     }
 }
 
 const mapDispatchToProps = dispatch => ({
     getEvidence: () => dispatch(getEvidence( )),
-    deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })
+    deleteEvidence: (token, id) => dispatch(deleteEvidence(token, id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Evidence);

@@ -31,13 +31,15 @@ function Adventure(props) {
                         - <Link to="/signup" className="linkw">Signup</Link> or <Link to="Login" className="linkw">Login</Link> to see more details about this adventure and challenge! -
                     </>
                 }
-                <Link to={`/adventures/${id}`}>
-                {props.user ? <button id="btn" className={scratch ? "shown" : "hidden"} >Completed!</button> : null}
-                </Link>
+                {props.user !== null && Object.keys(props.user).length > 0 ?
+                    <Link to={`/adventures/${id}`}>
+                        <button id="btn" className={scratch ? "shown" : "hidden"} >Completed!</button> 
+                    </Link> : null
+                }
             </ul>
         </div>
     )
-  }
+}
 
 const mapStateToProps = (state) => { 
     return {
