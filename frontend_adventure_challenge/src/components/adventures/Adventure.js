@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
 import { createUserAdventure } from '../../actions/fetchAdventures'
 
 function Adventure(props) {
@@ -58,5 +57,5 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Adventure));
+export default connect(mapStateToProps, mapDispatchToProps)(Adventure);
 

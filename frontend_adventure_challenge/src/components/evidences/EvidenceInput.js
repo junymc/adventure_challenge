@@ -19,9 +19,12 @@ class EvidenceInput extends React.Component {
     // this function is not firing.. so it doesn't hit the fetch so doesn't dispatch reducer
     handleOnSubmit = (event) => {
         event.preventDefault();
+        console.log(this.props)
         const image = this.state.image
         const description = this.state.description
-        this.props.addEvidence(this.props.token, image, description, this.props.adventureId)
+        const userId = this.props.user.id
+        console.log(userId)
+        this.props.addEvidence(this.props.token, image, description, this.props.adventureId, userId)
         this.setState({
             description: '',
             image: ''
@@ -60,14 +63,15 @@ const mapStateToProps = state => {
     return {
         token: state.csrf_token,
         evidence: state.evidence,
-        userAdventure: state.userAdventure
+        userAdventure: state.userAdventure,
+        user: state.user
     }
 }
 
 
 
 const mapDispatchToProps = dispatch => ({
-    addEvidence: (token, image, description, adventureId) => dispatch(addEvidence(token, image, description, adventureId))
+    addEvidence: (token, image, description, adventureId, userId) => dispatch(addEvidence(token, image, description, adventureId, userId))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EvidenceInput));

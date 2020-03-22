@@ -5,8 +5,9 @@ import { connect } from 'react-redux'
 class EvidenceContainer extends React.Component {
 
     render() {
-        const adventure_id = this.props.evidence.adventure_id
-        const adventure = this.props.adventures.adventures.find(adventure => adventure.id === adventure_id)
+        console.log(this.props)
+        const adventure_id = this.props.match.params.id
+        const adventure = this.props.adventures.find(adventure => adventure.id === parseInt(adventure_id))
         console.log(adventure, adventure_id)
         
         if(!adventure){
@@ -32,7 +33,7 @@ class EvidenceContainer extends React.Component {
                     </div>
                     <div className="child2">
                         <Evidence
-                            evidence={this.props.evidence}
+                            evidences={this.props.evidences}
                             adventureId={adventure.id}
                             deleteEvidence={this.props.deleteEvidence} /> 
                     </div>
@@ -43,7 +44,14 @@ class EvidenceContainer extends React.Component {
     }
 }
 
-const mapStateToProps = ({ evidence, adventures }) => ({ evidence, adventures })
+const mapStateToProps = state => { 
+    console.log(state)
+    return {
+        evidences: state.evidence.evidences,
+        adventures: state.adventures.adventures,
+        userAdventure: state.userAdventure.userAdventures
+    }
+    }
 
 const mapDispatchToProps = dispatch => ({
    deleteEvidence: id => dispatch({ type: 'DELETE_EVIDENCE', id })

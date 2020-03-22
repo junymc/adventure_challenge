@@ -3,6 +3,7 @@ class CreateUserAdventures < ActiveRecord::Migration[6.0]
     create_table :user_adventures do |t|
       t.references :user, null: false, foreign_key: true
       t.references :adventure, null: false, foreign_key: true
+      t.boolean :scratch, default: true
 
       t.timestamps
     end

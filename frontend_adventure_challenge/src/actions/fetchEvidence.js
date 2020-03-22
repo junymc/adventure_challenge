@@ -1,6 +1,5 @@
-export const addEvidence = (csrf_token, image, description, adventureId) => {
-    console.log(csrf_token, image, description, adventureId)
-    console.log(JSON.stringify({csrf_token, image, description, adventureId}))
+export const addEvidence = (csrf_token, image, description, adventureId, userId) => {
+    console.log(csrf_token, image, description, adventureId, userId)
     return async function (dispatch) {
         try{
             const res = await fetch("http://localhost:3001/api/v1/adventures/adventure_id/evidences", {
@@ -10,7 +9,7 @@ export const addEvidence = (csrf_token, image, description, adventureId) => {
                     'Content-Type': 'application/json',
                     'X-CSRF-TOKEN': csrf_token
                 },
-                body: JSON.stringify({csrf_token, image, description, adventureId}),
+                body: JSON.stringify({csrf_token, image, description, adventureId, userId}),
                 credentials: 'include'
             })
             if(!res.ok){
@@ -29,7 +28,7 @@ export const addEvidence = (csrf_token, image, description, adventureId) => {
     }
 }
 
-export const getEvidence = (id) => {
+export const getEvidences = (id) => {
     return async function (dispatch) {
         try{
             const res = await fetch(`http://localhost:3001/api/v1/adventures/${id}/evidences`, {

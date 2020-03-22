@@ -35,18 +35,20 @@ render() {
             setCurrentUser={this.props.setCurrentUser}
             user={this.props.user}/>
           </Route>
-          <Route path={`/adventures/:aid/evidence`}>
+          <Route path={`/adventures/:id/evidence`} 
+            component={ ({match}) => (
             <EvidenceContainer 
-            token={this.props.token}
-            setCurrentUser={this.props.setCurrentUser} 
-            user={this.props.user}/>
-          </Route>
-          <Route path={`/adventures/:aid`}>
+              match={match} 
+              token={this.props.token}
+              setCurrentUser={this.props.setCurrentUser} 
+              user={this.props.user} />)} />
+          <Route path={`/adventures/:id`}
+            component={ ({match}) => (
             <AdventureEvidence 
+            match={match}
             token={this.props.token} 
             setCurrentUser={this.props.setCurrentUser}
-            user={this.props.user}/>
-          </Route>
+            user={this.props.user}/>)} />
           <Route path="/login">
             <LoginContainer 
             get_token={this.props.get_token} 

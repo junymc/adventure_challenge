@@ -1,14 +1,14 @@
 // import uuid from 'uuid'
 
-function manageEvidence(state = {}, action) {
+function manageEvidence(state = {evidences: []}, action) {
     
     switch (action.type) {
         case 'ADD_EVIDENCE':
             console.log(action.payload)
-            return {...state, ...action.payload}
+            return {...state, evidences: [...state.evidences, action.payload]}
 
         case 'SET_EVIDENCE':
-            return {...action.payload}
+            return {evidences: action.payload}
            
         case 'DELETE_EVIDENCE':
             console.log(action)

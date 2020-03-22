@@ -1,19 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
-// import { getEvidence } from '../../actions/fetchEvidence'
+import { getEvidences } from '../../actions/fetchEvidence'
 import EvidenceInput from './EvidenceInput'
 import Evidence from './Evidence'
 
-function AdventureEvidence(props) {
-    console.log(props)
-    console.log(props.evidence.adventure_id)
+class AdventureEvidence extends React.Component {
 
-    let { aid } = useParams();
-    // debugger
-    const scratchedAdventure = props.adventures.adventures.find(adventure => adventure.id === parseInt(aid))
+    componentDidMount() {
+        const adventureId = this.props.match.params.id
+        this.props.getEvidences(parseInt(adventureId))
+    }
 
-    if(Object.keys(props.evidence).length > 0 && props.evidence.adventure_id === scratchedAdventure.id) {
+    render() {
+    console.log(this.props)
+    const adventureId = this.props.match.params.id
+    const scratchedAdventure = this.props.adventures.adventures.find(adventure => adventure.id === parseInt(adventureId))
+
+    if(Object.keys(this.props.evidences).length > 0 
+        && this.props.evidences.find(evidence => evidence.adventure_id === scratchedAdventure.id) 
+        && this.props.evidences.find(evidence => evidence.user_id === this.props.user.id)) {
         return (
             <div className="bigbox">
                 <h2>You already posted your evidence!</h2>
@@ -30,9 +35,10 @@ function AdventureEvidence(props) {
                     </div>
                     <div className="child2">
                         <Evidence
-                            evidence={props.evidence}
+                            evidence={this.props.evidences}
+                            evidenceUser={this.props.user}
                             adventureId={scratchedAdventure.id}
-                            deleteEvidence={props.deleteEvidence} /> 
+                            deleteEvidence={this.props.deleteEvidence} /> 
                     </div>
                 </div>
             </div>
@@ -53,19 +59,25 @@ function AdventureEvidence(props) {
                     </ul>
                 </div>    
                 <div className="child inline-block-child">
-                    <EvidenceInput adventureId={ aid } />
+                    <EvidenceInput adventureId={ scratchedAdventure.id } />
                 </div>
             </div>
         </div>
     )
+}
 }
 
 const mapStateToProps = (state) => { 
     return {
         adventures: state.adventures,
         requesting: state.requesting,
-        evidence: state.evidence
+        evidences: state.evidence.evidences,
+        userAdventures: state.userAdventure.userAdventures
  }
 }
 
-export default connect(mapStateToProps)(AdventureEvidence);
+const mapDispatchToProps = dispatch => ({
+    getEvidences: id => dispatch(getEvidences(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdventureEvidence);

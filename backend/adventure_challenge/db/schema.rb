@@ -29,16 +29,19 @@ ActiveRecord::Schema.define(version: 2020_02_19_011902) do
 
   create_table "evidences", force: :cascade do |t|
     t.bigint "adventure_id"
+    t.bigint "user_id"
     t.string "image"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["adventure_id"], name: "index_evidences_on_adventure_id"
+    t.index ["user_id"], name: "index_evidences_on_user_id"
   end
 
   create_table "user_adventures", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "adventure_id", null: false
+    t.boolean "scratch", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["adventure_id"], name: "index_user_adventures_on_adventure_id"

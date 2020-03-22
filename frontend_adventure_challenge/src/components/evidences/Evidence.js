@@ -1,18 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getEvidence, deleteEvidence } from '../../actions/fetchEvidence'
+import { getEvidences, deleteEvidence } from '../../actions/fetchEvidence'
 
 class Evidence extends React.Component {
 
     // componentDidMount() {
-    //     this.props.getEvidence()
+    //     const adventureId = this.props.match.params.id
+    //     this.props.getEvidences(parseInt(adventureId))
     // }
 
     handleOnClick = async () => {
         console.log(this.props)
         // const evidence = this.props.evidence.find(evidence => evidence.adventure_id === this.props.adventureId)
-        const id = this.props.evidence.id
+        const id = this.props.evidences.id
         await this.props.deleteEvidence(this.props.token, id)
         console.log("deleted")
         this.props.history.push("/userpage")
@@ -20,11 +21,20 @@ class Evidence extends React.Component {
 
     render() {
         console.log(this.props)
-        
+        const adventureId = this.props.match.params.id
+        const evidence = this.props.evidences.find(evidence => evidence.adventure_id === parseInt(adventureId))
+
+        if(!evidence){
+            return (
+                <div>
+
+                </div>
+            )
+        }
         return (
             <div className="evidence">
-                <img src={this.props.evidence.image} alt="image" height="350" width="300"/>   
-                <p>{this.props.evidence.description}</p>
+                <img src={evidence.image} alt="image" height="350" width="300"/>   
+                <p>{evidence.description}</p>
                 <button id="btn" onClick={this.handleOnClick}>Delete</button>
             </div>
         )
@@ -34,14 +44,14 @@ class Evidence extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        evidence: state.evidence,
+        evidences: state.evidence.evidences,
         adventures: state.adventures,
         token: state.csrf_token
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    getEvidence: () => dispatch(getEvidence( )),
+    getEvidences: id => dispatch(getEvidences(id)),
     deleteEvidence: (token, id) => dispatch(deleteEvidence(token, id))
 })
 
