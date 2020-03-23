@@ -10,11 +10,12 @@ class Evidence extends React.Component {
     //     this.props.getEvidences(parseInt(adventureId))
     // }
 
-    handleOnClick = async () => {
+    handleOnClick = () => {
         console.log(this.props)
-        // const evidence = this.props.evidence.find(evidence => evidence.adventure_id === this.props.adventureId)
-        const id = this.props.evidences.id
-        await this.props.deleteEvidence(this.props.token, id)
+        const adventureId = this.props.match.params.id
+        const evidence = this.props.evidences.find(evidence => evidence.adventure_id === parseInt(adventureId))
+        const id = evidence.id
+        this.props.deleteEvidence(this.props.token, id)
         console.log("deleted")
         this.props.history.push("/userpage")
     }

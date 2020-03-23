@@ -32,9 +32,13 @@ class Api::V1::EvidencesController < ApplicationController
     end
 
     def destroy
+        # byebug
         @evidence = Evidence.find(params[:id])
-        @evidence.delete
-        render json: {message: "Evidence is deleted!"}, status: 200
+        if @evidence.delete
+            render json: {message: "Evidence is deleted!"}, status: 200
+        else
+            render json: {error: "Something went wrong, try again."}, status: 400
+        end
     end
 
     private

@@ -16,7 +16,6 @@ class EvidenceInput extends React.Component {
         })
     }
 
-    // this function is not firing.. so it doesn't hit the fetch so doesn't dispatch reducer
     handleOnSubmit = (event) => {
         event.preventDefault();
         console.log(this.props)
@@ -42,13 +41,15 @@ class EvidenceInput extends React.Component {
                       type="text"
                       value={this.state.description}
                       placeholder="Description"
-                      onChange={(event) => this.handleOnChange(event)} />
+                      onChange={(event) => this.handleOnChange(event)} 
+                      required />
                     <input
                       name="image"
                       type="text"
                       value={this.state.image}
                       placeholder="image"
-                      onChange={(event) => this.handleOnChange(event)} />
+                      onChange={(event) => this.handleOnChange(event)} 
+                      required />
                     {/* <Link to={`/adventures/${this.props.adventureId}/evidence`}> */}
                       <button id="btn" type="submit" >Add Evidence</button>
                     {/* </Link> */}
