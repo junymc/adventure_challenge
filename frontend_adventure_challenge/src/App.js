@@ -39,6 +39,7 @@ render() {
             component={ ({match}) => (
             <EvidenceContainer 
               match={match} 
+              myname={"juny"}
               token={this.props.token}
               setCurrentUser={this.props.setCurrentUser} 
               user={this.props.user} />)} />

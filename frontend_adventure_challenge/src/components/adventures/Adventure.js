@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { createUserAdventure } from '../../actions/fetchAdventures'
 
 function Adventure(props) {
     
+    // const [number, setNumber] = useState(0)
     const { name, category, cost, time, duration, scratch, description, id, token} = props
 
     const onClick = (event) => {
@@ -14,6 +15,13 @@ function Adventure(props) {
         props.createUserAdventure(token, props.user, scratchedAdventure)
  
     }
+
+    // const handleClick = (event) => {
+    //     event.preventDefault()
+    //     setNumber(
+    //         number + 1
+    //     )
+    // }
 
     return (
         <div className="boxed">
@@ -36,6 +44,8 @@ function Adventure(props) {
                         <button id="btn" className={scratch ? "shown" : "hidden"} >Completed!</button> 
                     </Link> : null
                 }
+
+                {/* <button onClick={handleClick}>Like me{number}</button> */}
             
         </div>
     )

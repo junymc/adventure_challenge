@@ -34,7 +34,7 @@ class Evidence extends React.Component {
         }
         return (
             <div className="evidence">
-                <img src={evidence.image} alt="image" height="350" width="300"/>   
+                <img src={evidence.image} alt="evidence" height="350" width="300"/>   
                 <p>{evidence.description}</p>
                 <button id="btn" onClick={this.handleOnClick}>Delete</button>
             </div>
