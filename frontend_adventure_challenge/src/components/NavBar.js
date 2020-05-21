@@ -26,7 +26,7 @@ class NavBar extends React.Component {
                         <Link to="/" style={navStyle}> Home </Link>
                         <Link to="/adventures" style={navStyle}> Adventures </Link>
                         <Link to="/logout" style={navStyle} onClick={this.deleteHandler}> Logout </Link>
-                        <Link to="userpage" style={navStyle}> My Page</Link>
+                        <Link to="/userpage" style={navStyle}> My Page</Link>
                     </ul>
                     </nav>
                 </div>

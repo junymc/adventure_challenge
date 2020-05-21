@@ -28,21 +28,21 @@ export const addEvidence = (csrf_token, image, description, adventureId, userId)
     }
 }
 
-export const getEvidences = (id) => {
+export const getEvidences = () => {
     return async function (dispatch) {
         try{
-            const res = await fetch(`http://localhost:3001/api/v1/adventures/${id}/evidences`, {
+            const res = await fetch(`http://localhost:3001/api/v1/userEvidences`, {
                 credentials: 'include'
             })
             if(!res.ok){
                 throw res
             }
-            const evidence = await res.json()
+            const evidences = await res.json()
             dispatch({
                 type: 'SET_EVIDENCE',
-                payload: evidence
+                payload: evidences
             })
-            console.log(evidence)
+            console.log(evidences)
         }catch(error){
             console.log(error)
         }

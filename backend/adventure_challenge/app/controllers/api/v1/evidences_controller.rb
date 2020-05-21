@@ -31,6 +31,12 @@ class Api::V1::EvidencesController < ApplicationController
         render json: @evidences, status: 200
     end
 
+    def currentUserEvidences
+        @user = current_user
+        @userEvidences = @user.evidences
+        render json: @userEvidences, status: 200
+    end
+
     def destroy
         # byebug
         @evidence = Evidence.find(params[:id])
