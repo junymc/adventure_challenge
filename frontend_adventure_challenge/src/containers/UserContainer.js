@@ -29,7 +29,7 @@ class UserContainer extends React.Component {
                 <div>
                     {this.props.evidences.map(evidence => {
                         return (
-                            <div>
+                            <div class="evidences">
                                 <img src={evidence.image} alt="evidence" height="350" width="300"/>   
                                 <p>{evidence.description}</p>
                             </div>

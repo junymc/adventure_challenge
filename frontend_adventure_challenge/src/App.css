@@ -39,32 +39,6 @@ a:link {
 .horizontal-scroll-wrapper{
   position:absolute;
   display:block;
-  top:-15%;
-  left:0;
-  width:60%;
-  max-height:70%;
-  overflow-y:auto;
-  overflow-x:scroll;
-  transform:rotate(-90deg);
-}
-.horizontal-scroll-wrapper > div{
-  display:block;
-  padding:5px;
-  transform:rotate(90deg);
-}
-
-.squares{
-  padding: 10% 30% 10% 10%;
-}
-
-.squares > div{
-  width:400px;
-  height:400px;
-}
-
-.horizontal-scroll-wrapper{
-  position:absolute;
-  display:block;
   top:-35%;
   left:0;
   width:60%;
@@ -265,4 +239,11 @@ a:link {
 
 .evidence {
   text-align: center;
+}
+
+.evidences {
+  text-align: center;
+  border: solid 2px;
+  display: block;
+
 }

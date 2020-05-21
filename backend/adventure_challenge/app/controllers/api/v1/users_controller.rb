@@ -10,11 +10,9 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
-    def current_user
-        @user = User.find_by(id: session[:user_id])
-        if @user
-            render json: @user, except: [:password_digest, :created_at, :updated_at], status: 200
-        end
+    def checkCurrentUser
+        current_user
+        render json: current_user, except: [:password_digest, :created_at, :updated_at], status: 200
     end
 
 
